@@ -1,14 +1,14 @@
 package com.mycom.app.controller;
 
-import com.mycom.app.service.LoginService;
+import com.mycom.app.service.StageService;
+import com.mycom.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class LoginController {
+public class StageController {
 
     @Autowired
-    LoginService loginService;
-
+    StageService stageService;
 
 }

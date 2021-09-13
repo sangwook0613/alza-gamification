@@ -1,6 +1,5 @@
 package com.mycom.app.service;
 
-
 import com.mycom.app.domain.dto.login.LoginDto;
 import com.mycom.app.domain.dto.login.LoginResultDto;
 import com.mycom.app.domain.dto.login.TokenUpdateDto;

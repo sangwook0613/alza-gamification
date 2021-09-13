@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Data
@@ -18,26 +19,14 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @DynamicInsert
 @DynamicUpdate
-@Table(name="USER")
-public class User {
+@Table(name="STAGE")
+public class Stage {
     @Id
     @Column(length = 20)
     private String userId;
 
-    @JsonIgnore
-    @Column(length = 20)
-    private String password;
+    @Id
+    private int gameCode;
 
-    @Column(length = 20)
-    private String userName;
-
-    @Column(length = 13)
-    private String userTel;
-
-    @Column(length = 20)
-    private String userNickname;
-
-    @JsonIgnore
-    private String refreshToken;
-
+    private int curStage;
 }

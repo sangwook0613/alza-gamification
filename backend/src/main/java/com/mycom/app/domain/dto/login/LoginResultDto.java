@@ -12,5 +12,6 @@ public class LoginResultDto {
     private String userId;
     private String userName;
     private String userNickname;
+    private String userEmail;
 
 }

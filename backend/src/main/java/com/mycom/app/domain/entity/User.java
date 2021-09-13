@@ -31,11 +31,13 @@ public class User {
     @Column(length = 20)
     private String userName;
 
+    @Column(length = 20)
+    private String userNickname;
+
     @Column(length = 13)
     private String userTel;
 
-    @Column(length = 20)
-    private String userNickname;
+    private String userEmail;
 
     @JsonIgnore
     private String refreshToken;

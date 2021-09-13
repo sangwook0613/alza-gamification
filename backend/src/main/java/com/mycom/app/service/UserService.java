@@ -9,4 +9,5 @@ public interface UserService {
     int join(UserDto userDto);
     UserDto userDetail(String userId);
     int updateUserInfo(UserDto userDto);
+    int deleteUser(String userId);
 }

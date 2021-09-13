@@ -86,5 +86,17 @@ public class UserServiceImpl implements UserService{
         }
     }
 
+    @Override
+    @Transactional
+    public int deleteUser(String userId) {
+        try{
+            userRepository.deleteByUserId(userId);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return FAIL;
+        }
+    }
+
 
 }

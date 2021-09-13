@@ -19,7 +19,7 @@ public class JoinController {
         try{
             System.out.println(userId);
             if(userService.checkUserId(userId)) return new ResponseEntity(true, HttpStatus.OK);
-            return new ResponseEntity(false, HttpStatus.OK);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -32,7 +32,7 @@ public class JoinController {
         try{
             int result = userService.join(userDto);
             if(result == 1) return new ResponseEntity(true, HttpStatus.OK);
-            return new ResponseEntity(false, HttpStatus.OK);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);

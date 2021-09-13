@@ -45,6 +45,23 @@ public class UserServiceImpl implements UserService{
             e.printStackTrace();
             return FAIL;
         }
-
     }
+
+    @Override
+    public UserDto userDetail(String userId) {
+        User user = userRepository.findByUserId(userId);
+        UserDto userDto = null;
+        if(user != null){
+            userDto = new UserDto();
+            userDto.setUserId(user.getUserId());
+            userDto.setPassword(user.getPassword());
+            userDto.setUserName(user.getUserName());
+            userDto.setUserNickName(user.getUserNickName());
+            userDto.setUserTel(user.getUserTel());
+            userDto.setUserEmail(user.getUserEmail());
+        }
+        return userDto;
+    }
+
+
 }

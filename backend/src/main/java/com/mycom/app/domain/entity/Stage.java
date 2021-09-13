@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
@@ -20,7 +21,7 @@ import java.util.Date;
 @DynamicInsert
 @DynamicUpdate
 @Table(name="STAGE")
-public class Stage {
+public class Stage implements Serializable {
     @Id
     @Column(length = 20)
     private String userId;

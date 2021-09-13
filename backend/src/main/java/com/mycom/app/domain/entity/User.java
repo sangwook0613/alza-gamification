@@ -32,12 +32,14 @@ public class User {
     private String userName;
 
     @Column(length = 20)
-    private String userNickname;
+    private String userNickName;
 
     @Column(length = 13)
     private String userTel;
 
     private String userEmail;
+
+    private String profileImg;
 
     @JsonIgnore
     private String refreshToken;

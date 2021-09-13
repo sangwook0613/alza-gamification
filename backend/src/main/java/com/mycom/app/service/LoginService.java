@@ -62,7 +62,7 @@ public class LoginService {
 
         loginResultDto.setUserId(user.getUserId());
         loginResultDto.setUserName(user.getUserName());
-        loginResultDto.setUserNickname(user.getUserNickname());
+        loginResultDto.setUserNickname(user.getUserNickName());
         loginResultDto.setUserEmail(user.getUserEmail());
 
         return loginResultDto;

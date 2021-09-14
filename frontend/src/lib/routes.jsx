@@ -6,7 +6,7 @@ import LoginPage from '../views/loginPage/index'
 // import MyPage from '../views/myPage/index'
 // import GamePage from '../views/gamePage/index'
 // import GameDetailPage from '../views/gameDetailPage/index'
-// import StudyPage from '../views/studyPage/index'
+import StudyPage from '../views/studyPage/index'
 // import StudyDetailPage from '../views/studyDetailPage/index'
 import Navbar from '../component/navbar'
 
@@ -30,7 +30,7 @@ const routes = (
       {/* 게임디테일 페이지 */}
       {/* <Route exact path="/game/:gameId" component={GameDetailPage}/> */}
       {/* 설명 페이지 */}
-      {/* <Route exact path="/study" component={StudyPage}/> */}
+      <Route exact path="/study" component={StudyPage}/>
       {/* 설명디테일 페이지 */}
       {/* <Route exact path="/study/:studyTitle" component={StudyDetailPage}/> */}
       

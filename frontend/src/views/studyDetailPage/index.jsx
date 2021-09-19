@@ -1,12 +1,50 @@
 import {useParams, Link} from 'react-router-dom'
 
+import stack_thumnail from '../../assets/stack_thumnail.jpg'
+import stack1 from '../../assets/stack1.PNG'
+import stack2 from '../../assets/stack2.PNG'
+import stack3 from '../../assets/stack3.jpg'
+
+import queue_thumnail from '../../assets/queue_thumnail.png'
+import queue1 from '../../assets/queue1.PNG'
+import queue3 from '../../assets/queue3.jpg'
+
+import graph_thumnail from '../../assets/graph_thumnail.jpg'
+import graph1 from '../../assets/graph1.png'
+import graph2 from '../../assets/graph2.PNG'
+import graph3 from '../../assets/graph3.PNG'
+import graph4 from '../../assets/graph4.PNG'
+import graph5 from '../../assets/graph5.PNG'
+import graph6 from '../../assets/graph6.png'
+
+import tree_thumnail from '../../assets/tree_thumnail.jpg'
+// import tree1 from '../../assets/tree1.PNG'
+import tree2 from '../../assets/tree2.PNG'
+import tree3 from '../../assets/tree3.PNG'
 import tree4 from '../../assets/tree4.PNG'
+import tree5 from '../../assets/tree5.PNG'
+
+import sort_thumnail from '../../assets/sort_thumnail.jpg'
+import bubble_sort from '../../assets/bubble_sort.PNG'
+import insertion_sort from '../../assets/insertion_sort.PNG'
+import selection_sort from '../../assets/selection_sort.PNG'
+
+import graphtraversal_thumnail from '../../assets/graphTraversal_thumnail.png'
+import graphtraversal1 from '../../assets/graphtraversal1.jpg'
+import DFS from '../../assets/DFS.gif'
+import BFS from '../../assets/BFS.gif'
+
+// import binarysearch_thumnail from '../../assets/binarysearch_thumnail.jpg'
+import binarysearch1 from '../../assets/binarysearch1.png'
+import binarysearch2 from '../../assets/binarysearch2.jpg'
+import binarysearch3 from '../../assets/binarysearch3.PNG'
+import binarysearch4 from '../../assets/binarysearch4.PNG'
 
 function Stack () {
   return (
     <div>
       <h1>Stack</h1>
-      <img src="" alt="" />
+      <img src={stack_thumnail} alt="" />
       <h2>스택이란?</h2>
       <p>
         스택은 배열의 끝에서만 데이터를 접근할 수 있는 자료 구조에요. 먼저 들어온 항목이 나중에 나가는 구조 (후입선출; last in, first out)
@@ -15,10 +53,11 @@ function Stack () {
         책이 쌓여 있으면 아래에 있는 책을 꺼내기 위해 위에 있는 것을 먼저 꺼내야 하겠죠? 스택도 먼저 들어온 항목을 꺼내기 위해서는
         나중에 들어온 항목부터 꺼내줘야 해요
       </p>
-      <img src="" alt="" />
+      <img src={stack1} alt="" />
+      <img src={stack2} alt="" />
       <h2>스택의 동작</h2>
       <p>
-        스택의 동작은 아래와 같이 이루어져요.
+        스택의 동작은 아래와 같이 이루어져요. 위 그림을 함께 참고하며 생각해보세요.
       </p>
       <p>
         - 삽입 :
@@ -34,6 +73,7 @@ function Stack () {
       <p>
         스택에 있는 항목을 삭제할 때는 top의 위치에서 항목을 삭제한 후 top의 위치를 1만큼 감소시켜줘요. 
       </p>
+      <img src={stack3} alt="" />
       <h2>실생활 예</h2>
       <p>
         위에서 설명한 책, 접시 같은 상황 이외에도 다양한 상황을 예로 들어볼 수 있을거에요. 혹시 프링글X 라는 과자를 드셔보셨나요?
@@ -48,14 +88,14 @@ function Queue () {
   return (
     <div>
       <h1>Queue</h1>
-      <img src="" alt="" />
+      <img src={queue_thumnail} alt="" />
       <h2>큐란?</h2>
       <p>
         큐는 배열에 항목이 들어온 순서대로 접근 가능한 자료구조에요. 먼저 들어온 항목이 먼저 나가는 구조 (선입선출; first in, first out)
         를 가지고 있어요. 은행 업무를 보기위해 기다리는 것이나 롤러코스터를 타려고 줄을 서는 것을 생각해보면 좀 더 쉽게 이해할 수 있을 거에요!
         롤러코스터를 타기 위해 줄을 먼저 선 사람이 먼저 탈 수 있겠죠? 큐도 먼저 들어온 항목이 먼저 빠져나가게 되는 거에요!
       </p>
-      <img src="" alt="" />
+      <img src={queue1} alt="" />
       <h2>큐의 동작</h2>
       <p>
         큐의 동작은 아래와 같이 이루어져요. 
@@ -72,6 +112,7 @@ function Queue () {
       <p>
          front는 가장 먼저 삭제될 노드를 가리켜요. 큐에 있는 항목을 제거할 때에는 front 위치에서 항목을 제거한 후 한 칸 앞으로 이동해요.
       </p>
+      <img src={queue3} alt="" />
       <h2>실생활 예</h2>
       큐의 또다른 예시는 뭐가 있을까요? 대부분의 줄을 서는 행위는 큐의 예시라고 볼 수 있을 것 같아요. 톨게이트를 통과하는 차량들,
       티켓을 사기위해 줄을 서서 기다리는 사람들, 편의점 물품을 진열할 때 앞에서 부터 채워넣는 행위들이 모두 실생활에서 볼 수 있는 
@@ -84,13 +125,13 @@ function Graph () {
   return (
     <div>
       <h1>Graph</h1>
-      <img src="" alt="" />
+      <img src={graph_thumnail} alt="" />
       <h2>그래프란?</h2>
       <p>
         그래프는 공집합이 아닌 정점(Vertex)의 유한집합 V와 두 정점의 연결선이 간선(Edge)의 집합 E로 구성되는 특수한 형태의 자료구조에요
         설명이 조금 어렵게 느껴지시나요? 그럼 조금 더 자세히 알아보도록 할까요?
       </p>
-      <img src="" alt="" />
+      <img src={graph1} alt="" />
       <h2>그래프의 구성 및 용어 표현</h2>
       <p>
         정점(Vertex)
@@ -115,18 +156,19 @@ function Graph () {
       </p>
 
 
-      <img src="" alt="" />
       <h2>그래프의 종류</h2>
       <p>
         그래프는 방향에 따라 무방향 그래프와 방향 그래프, 간선이 어떻게 연결되었는지에 따라 부분 그래프, 완전 그래프로 나눌 수 있어요.
         하나하나 알아보도록 할까요?
       </p>
+      <img src={graph2} alt="" />
       <p>
         1. 무방향 그래프 (Undirected Graph)
       </p>
       <p>
         무방향 그래프는 말 그대로 간선에 방향이 없는 그래프에요. 간선으로 연결된 노드는 서로 인접해 있죠.
       </p>
+      <img src={graph3} alt="" />
       <p> 
         2. 방향 그래프 (Directed Graph)
       </p>
@@ -134,12 +176,14 @@ function Graph () {
         방향 그래프는 정점과 정점을 연결하는 간선에 방향을 표시하는 선이 있는 그래프에요. 정점 A에서 정점 B 를 연결하는 방향 그래프가 있다면, 
         A에서 B로 가는 경로는 있지만 B에서 A로 가는 경로는 존재하지 않아요. 
       </p>
+      <img src={graph4} alt="" />
       <p> 
         3. 부분 그래프 (Sub Graph)
       </p>
       <p>
         부분 그래프는 어떤 그래프에 대해 일부 정점과 간선으로만 이루어진 그래프를 말해요.
       </p>
+      <img src={graph5} alt="" />
       <p> 
         4. 완전 그래프 (Complete Graph)
       </p>
@@ -147,6 +191,7 @@ function Graph () {
         정점을 잇는 간선이 더 이상 존재하지 않는 그래프에요. 즉 간선의 개수가 최대인 그래프라고 할 수 있죠. 위 그림을 같이 참고하면
         더욱 쉽게 이해할 수 있을 거에요.
       </p>
+      <img src={graph6} alt="" />
       <h2>실생활 예</h2>
       가장 대표적으로 차량의 네비게이션을 그래프의 예로 들 수 있을 것 같아요. 한 지점에서 목적지로 가는 경로는 여러가지가 있고,
       가장 빨리 갈 수 있는 방법을 안내해주죠. 현재 위치와 목적지를 각각 정점이라고 생각한다면, 목적지까지 향하는 경로들을 간선이라고
@@ -161,13 +206,26 @@ function List () {
       <h1>List</h1>
       <img src="" alt="" />
       <h2>리스트란?</h2>
-      순차리스트, 연결리스트가 있다~~~~~
       <p>
-        리스트는
+        리스트는 다량의 데이터를 다루는데 가장 단순한 방법이기 때문에 가장 빈번하게 사용되는 자료구조 중 하나인데요.
+        구현 방법에 따라 순차리스트, 연결리스트 크게 두가지로 분류할 수 있어요. 각각 어떤 차이점이 있는지 알아보도록 할게요
       </p>
       <img src="" alt="" />
-      <h2>H2</h2>
+      <h2>순차리스트</h2>
       <p>
+        순차리스트(Sequential List)는 구현할 자료들을 논리적인 순서대로 메모리에 연속하여 저장하는 자료구조에요.
+        데이터가 컴퓨터 메모리에 저장될 때, 저장 시작 위치부터 빈 자리 없이 순서대로 저장된다는 뜻이죠.
+        자료의 논리적인 순서와 물리적인 순서가 일치하는 구현 방식이라고 할 수 있어요!
+        순차리스트의 이러한 특성 때문에, 데이터를 추가하거나 삭제하고 나면, 연속적인 순서를 유지하기 위해
+        다른 데이터의 위치를 옮겨주는 작업이 필요해요. 추가나 삭제가 많아지면 그만큼 시간이 많이 소요가 되겠죠?
+      </p>
+      <h2>연결리스트</h2>
+      <p>
+        연결리스트(Linked List)는 메모리에 저장된 물리적 위치나 순서와 상관없이, 연결로써 논리적인 순서를 표현하는 자료구조에요.
+        순차리스트와 다르게, 각각의 독립적인 메모리에 저장되어 다음 주소값을 활용하여 마치 순차적으로 이루어진 것 처럼 표현되죠.
+        주소에 대한 정보가 더 필요하기 때문에 순차리스트에 비해 복잡해 보이고 어려워 보일 수도 있는데 왜 연결리스트를 사용하는 것일까요?
+        연결리스트는 특정 데이터를 삽입하거나 삭제할 때 주소값만 수정하면 되기 때문에 순차리스트에 비해 연산속도가 빨라요.
+        즉, 단순 탐색은 순차리스트가 더 효율적이지만 데이터의 추가, 삭제 작업에서는 연결리스트가 효율적인 것이죠. 
       </p>
       <p>
       </p>
@@ -175,9 +233,6 @@ function List () {
       </p>
       <p>
       </p>
-      <p>
-      </p>
-      <h2>실생활 예</h2>
     </div>
   )
 }
@@ -186,7 +241,7 @@ function Tree () {
   return (
     <div>
       <h1>Tree</h1>
-      <img src="" alt="" />
+      <img src={tree_thumnail} alt="" />
       <h2>트리란?</h2>
       <p>
         트리는 계층적 데이터를 저장하고 활용하기 위한 자료구조에요. 
@@ -197,6 +252,7 @@ function Tree () {
         아직 잘 이해가 안가신다구요? 그럼 아래 내용을 계속 읽어보면서 하나하나 배워볼까요?
       </p>
       
+      <img src={tree2} alt="" />
       <h2>트리의 구성 및 용어 표현</h2>
       <p>
         노드, 에지 : 트리는 노드(Node)와 에지(Edge)로 구성되어 있어요. 회사를 다시 예로 들어본다면 CEO, CTO 등 각각은 노드이며 각각의 연결은
@@ -207,7 +263,7 @@ function Tree () {
         차수(Degree) : 차수란 어떤 노드가 가지고 있는 가짓수를 의미해요. 어떤 노드에 연결되어 있는 자식 노드의 수로 보시면 쉽게 이해 가실거에요!
       </p>
       <p>
-        계층(level) : 가장 위에 있는 노드의 레벨을 1이라고 하면, 순차적으로 내려오는 순서를 의미해요
+        레벨(level) : 가장 위에 있는 노드의 레벨을 1이라고 하면, 순차적으로 내려오는 순서를 의미해요
       </p>
       <p>
         높이(Height) 또는 깊이(Depth) : 트리 레벨의 최대값을 의미해요
@@ -217,6 +273,7 @@ function Tree () {
       <p>
         트리는 목적에 따라 다양하게 종류가 나누어 지는데요. 몇 가지 중요한 트리에 대해 설명해 드릴게요!
       </p>
+      <img src={tree3} alt="" />
       <p>
         1. 이진 트리
       </p>
@@ -224,6 +281,7 @@ function Tree () {
         이진 트리는 자식 노드가 최대 2개인 트리를 말해요. 이진 트리는 단순히 데이터를 저장하는 용도로 사용되는 것이 아니라,
         자료를 더 빠르게 정리하고 원하는 데이터를 찾을 수 있도록 하기 위해 사용해요.
       </p>
+      <img src={tree5} alt="" />
       <p>
         2. 순서 트리(Ordered Tree)와 비순서 트리(Oriented Tree)
       </p>
@@ -246,7 +304,7 @@ function Sort () {
   return (
     <div>
       <h1>Sort</h1>
-      <img src="" alt="" />
+      <img src={sort_thumnail} alt="" />
       <h2>정렬이란?</h2>
       <p>
         알고리즘에서 정렬이란, 말 그대로 어떤 항목들로 이루어진 그룹을 조건에 맞춰 다시 배치시키는 것이에요. 예를 들어, 
@@ -256,7 +314,7 @@ function Sort () {
         잘 모르시겠다구요? 그럼 제가 간단한 몇가지 정렬에 대해 설명해 드릴게요! 
       </p>
       <h2>정렬의 종류</h2>
-      <img src="" alt="" />
+      <img src={bubble_sort} alt="" />
       <p>
         1. 버블 정렬
       </p>
@@ -269,7 +327,7 @@ function Sort () {
         이런식으로 계속 반복하다보면 마지막 값은 그룹에서 가장 큰 값이 위치하게 될 거에요. 하지만, 아직 앞쪽은 정렬이 되지 않았기 때문에 맨 마지막 값(가장 큰 값)을 제외하고 다시 버블 정렬을 반복해서 해줘야해요.
         그렇게 총 5번의 버블 정렬을 마치고 나면, 오름차순으로 정렬된 결과를 확인할 수 있을 거에요.
       </p>
-      <img src="" alt="" />
+      <img src={selection_sort} alt="" />
       <p>
         2. 선택 정렬
       </p>
@@ -279,7 +337,7 @@ function Sort () {
         두번째론 그 다음 큰 작은 값을 찾아 두 번째로 위치한 값과 위치를 바꾸는거에요. 그룹에서 두번째 작은 값이 두번째에 위치하게 되는거죠
         이런식으로 바꾸다보면, 위 그림과 같은 과정을 통해 최종적으로 오름차순으로 정렬된 결과를 얻을 수 있어요. 어렵지 않죠?
       </p>
-      <img src="" alt="" />
+      <img src={insertion_sort} alt="" />
       <p>
         3. 삽입 정렬
       </p>
@@ -303,7 +361,7 @@ function BinarySearch(){
   return (
     <div>
       <h1>Binary Search</h1>
-      <img src="" alt="" />
+      <img src={binarysearch2} alt="" />
       <h2>이분 탐색이란?</h2>
       <p>
         이분 탐색은 정렬된 배열 내에서 찾고자 하는 값의 위치를 찾는 탐색이에요. 이진 탐색, 이진 검색 다 같은 말이죠.
@@ -312,19 +370,23 @@ function BinarySearch(){
         그렇다면 찾는 값이 중간요소보다 작거나 클때는 어떻게 될까요? 찾는값이 중간 요소보다 작다면 중간 요소를 기준으로 왼쪽 배열에서 검색 과정을 반복해요.
         반대로 크다면 중간 요소를 기준으로 오른쪽 배열에서 검색 과정을 반복하죠. 어때요, 어렵지 않죠?      
       </p>
-      <img src="" alt="" />
+      <img src={binarysearch1} alt="" />
       <h2>장점과 단점</h2>
       <p>
         이분 탐색에 대해 이해가 되셨나요? 그렇다면 이분탐색의 장점과 단점은 무엇이 있는지 알아볼까요?
       </p>
+
+      <img src={binarysearch4} alt="" />
       <p>
         장점
       </p>
+
       <p>
         이분 탐색의 장점은 배열의 크기가 클 수록, 즉 자료가 많을수록 효율적이라는 거에요. 배열에 값이 5개가 있다고 생각해 보세요.
         어떤 값을 찾으려고 할때, 앞에서부터 하나씩 비교해 가며 원하는 값을 찾는것과 이분 탐색을 통해 찾는것은 크게 시간적으로 차이가 없을 거에요.
         하지만 배열에 값이 1000개가 있다면? 훨씬 탐색 시간이 줄어들 거에요!
       </p>
+      <img src={binarysearch3} alt="" />
       <p>
         단점
       </p>
@@ -333,7 +395,6 @@ function BinarySearch(){
         이분 탐색 자체가 배열의 중간요소 값의 크기와 찾는 값의 크기를 비교 하는 탐색 방법이기 때문이에요. 이분 탐색을 하기 위해서는
         꼭 먼저 정렬을 해줘야한다는것. 잊지마세요!
       </p>
-      <h2>실생활 예</h2>
     </div>
   )
 }
@@ -342,15 +403,15 @@ function GraphTraversal() {
   return (
     <div>
       <h1>Graph Traversals</h1>
-      <img src="" alt="" />
+      <img src={graphtraversal_thumnail} alt="" />
       <h2>그래프,트리 탐색(BFS,DFS)</h2>
-      <Link to={"/study/algorithm/3"}>그래프란?</Link>
-      <Link to={"/study/algorithm/4"}>트리란?</Link>
+      <Link to={"/study/structure/3"}>그래프란?</Link>
+      <Link to={"/study/structure/4"}>트리란?</Link>
       <p>
         무방향 그래프 혹은 트리를 탐색하는 방법은 대표적으로 2가지가 있어요. DFS와 BFS가 바로 그것인데요. 각각 무엇을 의미하는지, 어떤 방식으로
         탐색이 진행되는지 차근차근 알아볼까요?
       </p>
-      <img src="" alt="" />
+      <img src={DFS} alt="" />
       <h2>DFS란</h2>
       <p>
         DFS(Depth First Search)는 그래프와 트리에서 깊이를 우선으로 탐색하는 방법이에요. 위의 그림을 참조하여 설명을 해 볼까요?
@@ -358,6 +419,7 @@ function GraphTraversal() {
         더 이상 깊이가 존재하지 않는다면 반대쪽 방향으로 탐색이 일어나구요.
         이처럼 한 쪽 끝까지 우선 탐색하는 것이 DFS 에요.
       </p>
+      <img src={BFS} alt="" />
       <h2>BFS란</h2>
       <p>
         BFS(Breadth First Search)는 DFS와는 반대로 너비를 우선으로 탐색하는 방법이에요. 더 깊은 위치를 탐색하기 이전에, 같은 깊이에 있는
@@ -370,6 +432,7 @@ function GraphTraversal() {
       </p>
       <p>
       </p>
+      <img src={graphtraversal1} alt="" />
       <h2>DFS와 BFS의 예</h2>
       <p>
         그럼 우리, DFS와 BFS에는 어떤 예제가 있는지 한번 생각해 보는 시간을 가져볼까요? DFS는 미로찾기를 떠올릴 수 있을것 같아요.

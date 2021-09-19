@@ -3,7 +3,9 @@ import queue_thumnail from '../../assets/queue_thumnail.png'
 import graph_thumnail from '../../assets/graph_thumnail.jpg'
 import tree_thumnail from '../../assets/tree_thumnail.jpg'
 import list_thumnail from '../../assets/list_thumnail.PNG'
-import sort_thumnail from '../../assets/sort_thumnail.png'
+import sort_thumnail from '../../assets/sort_thumnail.jpg'
+import graphtraversal_thumnail from '../../assets/graphtraversal1.jpg'
+import binarysearch_thumnail from '../../assets/binarysearch_thumnail.jpg'
 import { Card, CardGroup } from 'react-bootstrap';
 
 import '../../styles/main.css';
@@ -20,8 +22,8 @@ const struct_contents=[
 
 const algo_contents=[
   {id:1, title:'정렬', img: sort_thumnail, desc:''},
-  {id:2, title:'이분탐색', img: '', desc:''},
-  {id:3, title:'그래프탐색', img: '', desc:''},
+  {id:2, title:'이분탐색', img: binarysearch_thumnail, desc:''},
+  {id:3, title:'그래프탐색', img: graphtraversal_thumnail, desc:''},
 ]
 
 function StructStudyList() {

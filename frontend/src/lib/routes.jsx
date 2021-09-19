@@ -4,15 +4,15 @@ import MainPage from '../views/mainPage/index'
 import LoginPage from '../views/loginPage/index'
 // import SignupPage from '../views/signupPage/index'
 // import MyPage from '../views/myPage/index'
-// import GamePage from '../views/gamePage/index'
-// import GameDetailPage from '../views/gameDetailPage/index'
+import GamePage from '../views/gamePage/index'
+import GameDetailPage from '../views/gameDetailPage/index'
 // import StudyPage from '../views/studyPage/index'
 // import StudyDetailPage from '../views/studyDetailPage/index'
-import Navbar from '../component/navbar'
+import Navi from '../component/navbar'
 
 const routes = (
   <>
-    <Navbar/>
+    <Navi/>
 
     {/* <Footer /> */}
 
@@ -26,9 +26,9 @@ const routes = (
       {/* 마이페이지 */}
       {/* <Route exact path="/mypage/:username" component={MyPage}/> */}
       {/* 게임페이지 */}
-      {/* <Route exact path="/game" component={GamePage}/> */}
+      <Route exact path="/game/:category" component={GamePage}/>
       {/* 게임디테일 페이지 */}
-      {/* <Route exact path="/game/:gameId" component={GameDetailPage}/> */}
+      <Route exact path="/game/:category/:gameId" component={GameDetailPage}/>
       {/* 설명 페이지 */}
       {/* <Route exact path="/study" component={StudyPage}/> */}
       {/* 설명디테일 페이지 */}

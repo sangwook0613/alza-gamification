@@ -20,8 +20,10 @@
   flex-direction: row;
 }
 
-
-
+.text-middle {
+ display: flex;
+ align-items: center;
+}
 
 .main-container {
   display: flex;

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/user")
 public class JoinController {
@@ -27,9 +28,11 @@ public class JoinController {
 
     }
 
+
     @PostMapping
     public ResponseEntity join(@RequestBody UserDto userDto){
         try{
+            System.out.println("CHECK");
             int result = userService.join(userDto);
             if(result == 1) return new ResponseEntity(true, HttpStatus.OK);
             return new ResponseEntity(false, HttpStatus.OK);

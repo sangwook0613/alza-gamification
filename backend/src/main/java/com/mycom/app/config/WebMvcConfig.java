@@ -24,8 +24,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("*")
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .exposedHeaders("jwt-access-token", "jwt-refresh-token");
+                .allowedMethods("GET", "POST", "PUT", "DELETE");
+//                .exposedHeaders("jwt-access-token", "jwt-refresh-token");
     }
 
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/gameCard.css';
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import img1 from '../../assets/gamestack.png'
 
 function GamePage(props) {

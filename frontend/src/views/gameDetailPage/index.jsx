@@ -5,7 +5,7 @@ import { Row, Col } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from '@restart/ui/esm/Button';
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function GameDetailPage(props) {
   // console.log(props)

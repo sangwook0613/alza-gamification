@@ -1,11 +1,11 @@
-import stack_thumnail from '../../assets/stack_thumnail.png'
-import queue_thumnail from '../../assets/queue_thumnail.png'
-import graph_thumnail from '../../assets/graph_thumnail.jpg'
-import tree_thumnail from '../../assets/tree_thumnail.jpg'
-import list_thumnail from '../../assets/list_thumnail.PNG'
-import sort_thumnail from '../../assets/sort_thumnail.jpg'
-import graphtraversal_thumnail from '../../assets/graphtraversal1.jpg'
-import binarysearch_thumnail from '../../assets/binarysearch_thumnail.jpg'
+import stack_thumnail from '../../assets/study/stack_thumnail.png'
+import queue_thumnail from '../../assets/study/queue_thumnail.png'
+import graph_thumnail from '../../assets/study/graph_thumnail.jpg'
+import tree_thumnail from '../../assets/study/tree_thumnail.jpg'
+import list_thumnail from '../../assets/study/list_thumnail.PNG'
+import sort_thumnail from '../../assets/study/sort_thumnail.jpg'
+import graphtraversal_thumnail from '../../assets/study/graphtraversal1.jpg'
+import binarysearch_thumnail from '../../assets/study/binarysearch_thumnail.jpg'
 import { Card, CardGroup } from 'react-bootstrap';
 
 import '../../styles/main.css';

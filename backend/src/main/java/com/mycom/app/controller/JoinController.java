@@ -32,7 +32,6 @@ public class JoinController {
     @PostMapping
     public ResponseEntity join(@RequestBody UserDto userDto){
         try{
-            System.out.println("CHECK");
             int result = userService.join(userDto);
             if(result == 1) return new ResponseEntity(true, HttpStatus.OK);
             return new ResponseEntity(false, HttpStatus.OK);

@@ -1,23 +1,25 @@
 // import { createStore } from 'redux'
-import { request } from '../axios'
+import { requestAll, requestData } from '../axios'
 
 const initialState = {}
 const SIGNUP_USER = 'SIGNUP_USER'
 const LOGIN_USER = 'LOGIN_USER'
 
 export const signupUser = (input) => {
-  const data = request("post", '/user', input)
+  const response = requestData("post", '/user', input)
+  console.log('호출!!!', response)
   return {
     type: SIGNUP_USER,
-    payload: data,
+    payload: response,
   }
 }
 
 export const loginUser = (input) => {
-  const data = request("post", '/login', input)
+  const response = requestAll("post", '/login', input)
+  console.log('호출!!!', response)
   return {
     type: LOGIN_USER,
-    payload: data,
+    payload: response,
   }
 }
 
@@ -27,7 +29,7 @@ const reducer = (state = initialState, action) => {
     case SIGNUP_USER:
       return { ...state, success: action.payload }
     case LOGIN_USER:
-      return state
+      return { ...state}
     default:
       return state
   }

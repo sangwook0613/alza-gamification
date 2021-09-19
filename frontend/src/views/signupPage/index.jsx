@@ -61,33 +61,50 @@ const SignupPage = (props) => {
   return (
     <>
       <h1>회원가입</h1>
-      <form onSubmit={onSubmit}>
+      <form
+        className="signupForm"
+        onSubmit={onSubmit}
+        style={{ display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center' }}
+      >
+        <div>
+          <label>아이디</label>
+          <input type="text" value={id} onChange={onIdHandle} />
+          <button>중복확인</button>
+        </div>
+
+        <div>
+          <label>이름</label>
+          <input type="text" value={name} onChange={onNameHandle} />
+        </div>
+
+        <div>
+          <label>닉네임</label>
+          <input type="text" value={nickname} onChange={onNicknameHandle} />
+        </div>
+
+        <div>
+          <label>비밀번호</label>
+          <input type="password" value={password} onChange={onPasswordHandle} />
+        </div>
+
+        <div>
+          <label>비밀번호 확인</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={onConfirmPasswordHandle}
+          />
+        </div>
         
-        <label>아이디</label>
-        <input type="text" value={id} onChange={onIdHandle} />
-        <button>중복확인</button>
+        <div>
+          <label>이메일</label>
+          <input type="email" value={email} onChange={onEmailHandle} />
+        </div>
 
-        <label>이름</label>
-        <input type="text" value={name} onChange={onNameHandle} />
-
-        <label>닉네임</label>
-        <input type="text" value={nickname} onChange={onNicknameHandle} />
-
-        <label>비밀번호</label>
-        <input type="password" value={password} onChange={onPasswordHandle} />
-
-        <label>비밀번호 확인</label>
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={onConfirmPasswordHandle}
-        />
-        
-        <label>이메일</label>
-        <input type="email" value={email} onChange={onEmailHandle} />
-
-        <label>전화번호</label>
-        <input type="text" value={phoneNum} onChange={onPhoneNumHandle} />
+        <div>
+          <label>전화번호</label>
+          <input type="text" value={phoneNum} onChange={onPhoneNumHandle} />
+        </div>
 
         <button type="submit">회원가입</button>
       </form>

@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import '../styles/main.css';
 
 function Navbar(){
-  const username = ""
+  const username = localStorage.getItem('accessToken')
   return (
     <div className="navbar">
       <div><Link to='/' >로고</Link></div>

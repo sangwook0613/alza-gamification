@@ -4,6 +4,7 @@ import { requestAll, requestData } from '../axios'
 const initialState = {}
 const SIGNUP_USER = 'SIGNUP_USER'
 const LOGIN_USER = 'LOGIN_USER'
+const CHECK_ID = 'CHECK_ID'
 
 export const signupUser = (input) => {
   const response = requestData("post", '/user', input)
@@ -23,6 +24,15 @@ export const loginUser = (input) => {
   }
 }
 
+export const checkUserId = (id, input) => {
+  const response = requestData("get", `/user?userId=${id}`, input)
+  console.log('호출!!!', response)
+  return {
+    type: CHECK_ID,
+    payload: response,
+  }
+}
+
 // 좀 더 직관적으로 이해하기 위해 우선 createReducer를 사용하지 않는다.
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -30,6 +40,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, success: action.payload }
     case LOGIN_USER:
       return { ...state}
+    case CHECK_ID:
+      return { ...state, success: action.payload }
     default:
       return state
   }

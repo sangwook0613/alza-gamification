@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router';
-import { signupUser } from '../../lib/store/store';
+import { signupUser, checkUserId } from '../../lib/store/store';
+import { onIdValidation, onNameValidation, onNicknameValidation, onPasswordValidation, onConfirmPasswordValidation } from './validation';
 
 const SignupPage = (props) => {
   const [id, setId] = useState('')
@@ -11,6 +12,12 @@ const SignupPage = (props) => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNum, setPhoneNum] = useState('')
+  const [idErrorMessage, setIdErrorMessage] = useState('')
+  const [nameErrorMessage, setNameErrorMessage] = useState('')
+  const [nicknameErrorMessage, setNicknameErrorMessage] = useState('')
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState('')
+  const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] = useState('')
+  // const [validationCheck, setValidationCheck] = useState(0)
   const dispatch = useDispatch()
   
 
@@ -36,9 +43,50 @@ const SignupPage = (props) => {
     setPhoneNum(e.currentTarget.value)
   }
 
+  // Validation Handling 함수들
+  const validId = (e) => {
+    const result = onIdValidation(e.target.value)
+    if (result !== "") {
+      setIdErrorMessage(result)
+    } else {
+      dispatch(checkUserId(e.target.value, {})).then((res) => {
+        console.log(res)
+        if (res.payload) {
+          alert('사용가능한 아이디입니다!')
+          setIdErrorMessage("")
+        } else {
+          setIdErrorMessage("이미 존재하는 아이디입니다.")
+        }
+      })
+    }
+  }
+  const validName = (e) => {
+    setNameErrorMessage(onNameValidation(e.target.value))
+  }
+  const validNickname = (e) => {
+    setNicknameErrorMessage(onNicknameValidation(e.target.value))
+  }
+  const validPassword = (e) => {
+    setPasswordErrorMessage(onPasswordValidation(e.target.value))
+    setConfirmPasswordErrorMessage(onConfirmPasswordValidation(e.target.value, confirmPassword))
+  }
+  const validConfirmPassword = (e) => {
+    setConfirmPasswordErrorMessage(onConfirmPasswordValidation(password, e.target.value))
+  }
+
+  const checkValidation = () => {
+    if (idErrorMessage === "" && nameErrorMessage === "" && nicknameErrorMessage === "" && passwordErrorMessage === "" && confirmPasswordErrorMessage === "") {
+      if (id !== "" && password !== "" && name !== "" && nickname !== "" && confirmPassword !== "") {
+        return true
+      }
+    }
+    return false
+  }
+
   const onSubmit = (e) => {
     e.preventDefault()
-    if (password === confirmPassword) {
+    console.log(e)
+    if (checkValidation()) {
       let body = {
         userId: id,
         password: password,
@@ -53,7 +101,7 @@ const SignupPage = (props) => {
         props.history.push('/login')
       })
     } else {
-      alert('비밀번호가 일치하지 않습니다!')
+      alert('올바르게 작성해주세요!')
     }
   }
 
@@ -67,33 +115,58 @@ const SignupPage = (props) => {
         style={{ display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center' }}
       >
         <div>
-          <label>아이디</label>
-          <input type="text" value={id} onChange={onIdHandle} />
-          <button>중복확인</button>
+          <label>아이디*</label>
+          <input
+            type="text"
+            value={id}
+            onBlur={validId}
+            onChange={onIdHandle}
+          />
+          <p>{idErrorMessage}</p>
         </div>
 
         <div>
-          <label>이름</label>
-          <input type="text" value={name} onChange={onNameHandle} />
+          <label>이름*</label>
+          <input
+            type="text"
+            value={name}
+            onBlur={validName}
+            onChange={onNameHandle}
+          />
+          <p>{nameErrorMessage}</p>
         </div>
 
         <div>
-          <label>닉네임</label>
-          <input type="text" value={nickname} onChange={onNicknameHandle} />
+          <label>닉네임*</label>
+          <input
+            type="text"
+            value={nickname}
+            onBlur={validNickname}
+            onChange={onNicknameHandle}
+          />
+          <p>{nicknameErrorMessage}</p>
         </div>
 
         <div>
-          <label>비밀번호</label>
-          <input type="password" value={password} onChange={onPasswordHandle} />
+          <label>비밀번호*</label>
+          <input
+            type="password"
+            value={password}
+            onBlur={validPassword}
+            onChange={onPasswordHandle}
+          />
+          <p>{passwordErrorMessage}</p>
         </div>
 
         <div>
-          <label>비밀번호 확인</label>
+          <label>비밀번호 확인*</label>
           <input
             type="password"
             value={confirmPassword}
+            onBlur={validConfirmPassword}
             onChange={onConfirmPasswordHandle}
           />
+          <p>{confirmPasswordErrorMessage}</p>
         </div>
         
         <div>

@@ -22,6 +22,9 @@ const LoginPage = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+    console.log(e.target)
+    console.log(e.target[0].value)
+    console.log(e.target[1].value)
     let body = {
       userId: id,
       password: password,

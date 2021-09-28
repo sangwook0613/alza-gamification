@@ -4,7 +4,7 @@
 }
 
 .navbar {
-  margin-top: 20px;
+  padding-top: 20px;
   margin-bottom: 70px;
 }
 
@@ -64,7 +64,7 @@
 /* 메인페이지 */
 .main-container {
   display: flex;
-  height: 90%;
+  height: 80%;
 }
 
 .main-image {
@@ -79,11 +79,73 @@
 }
 
 .main-desc {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
+
+.main-desc .startBtn {
+  width: 40%;
+  font-size: 20px; 
+  padding: 10px 0;
+  background-color: #6562CF;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.main-desc .desc {
+  margin-top: 10px;
+}
+
+.test {
+  position: absolute;
+  width: 470px;
+  height: 470px;
+  left: -70px;
+  top: 120px;
+  border-radius: 50%;
+  background: #6B76FF;
+}
+
+.test2{
+  position: absolute;
+  left: 6%;
+  top: 41.5%;
+
+}
+
+.test3 {
+  width: 550px;
+  object-fit: cover;
+}
+
+.test4 {
+  width: 0px;
+  height: 0px;
+  border-bottom: calc( 120px * 1.732 ) solid #84D7EC;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  left: 681.27px;
+  top: auto;
+  position: absolute;
+  transform: rotate(39.54deg);
+}
+
+.test5 {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 50%;
+  bottom: 9%;
+  border-radius: 50%;
+  background: #6B76FF;
+}
+
 
 
 /* 학습페이지 */

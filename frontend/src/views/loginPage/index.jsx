@@ -3,6 +3,10 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router';
 import { loginUser } from '../../lib/store/store';
 
+
+import stack_thumnail from '../../assets/study/stack_thumnail.png'
+import logo from '../../assets/user.png'
+
 const LoginPage = (props) => {
   const [id, setId] = useState('')
   const [password, setPassword] = useState('')
@@ -49,25 +53,35 @@ const LoginPage = (props) => {
 
   return (
     <>
-      <h1>로그인</h1>
-      <form
-        className="loginForm"
-        onSubmit={onSubmit}
-        style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}
-      >
-        
-        <div>
-          <label>아이디</label>
-          <input type="text" value={id} onChange={onIdHandle} />
+      <div style={{display:"flex", height:"90%"}}>
+        <div style={{width:"50%"}}>
+          <img src={stack_thumnail} alt="" style={{width:"100%", height:"100%"}}/>
         </div>
+        <div style={{width:"50%", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          
+          <img src={logo} alt="" style={{width:"10%", marginBottom:"50px"}}/>
+          
+          <form
+            className="loginForm"
+            onSubmit={onSubmit}
+            style={{ width:"40%", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}
+          >
+            
+            <div id="id_line">
+              <i className="fas fa-user" id="idIcon"></i>
+              <input type="text" style={{width:"100%"}} value={id} onChange={onIdHandle} placeholder="아이디"
+              />
+            </div>
 
-        <div>
-          <label>비밀번호</label>
-          <input type="password" value={password} onChange={onPasswordHandle} />
+            <div id="pw_line">
+            <i className="fas fa-lock" id="pwIcon"></i>
+              <input type="password" style={{width:"100%"}} value={password} onChange={onPasswordHandle} placeholder="패스워드"/>
+            </div>
+
+            <button className="etcBtn" type="submit">LOGIN</button>
+          </form>
         </div>
-
-        <button type="submit">로그인</button>
-      </form>
+      </div>
     </>
   )
 };

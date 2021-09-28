@@ -1,12 +1,34 @@
-.navbar {
-  flex-direction: row;
-  justify-content: space-between;
-  height: 10%;
+/* 네비게이션바 */
+.dropdown-toggle::after {
+  display: none; 
 }
 
-.content-navbar {
-  display: flex;
-  flex-direction: row;
+.navbar {
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+.nav-link {
+  color: black;
+}
+
+.dropdown-menu {
+  min-width: 8rem;
+  text-align: center;
+  border: none;
+}
+
+.dropdown-menu[data-bs-popper] {
+  left: -50%;
+}
+
+.nav-text {
+  text-decoration: none;
+  color: black;
 }
 
 .content {
@@ -14,6 +36,10 @@
   margin-left: 10px;
 }
 
+.content-navbar {
+  display: flex;
+  flex-direction: row;
+}
 
 .auth-navbar {
   display: flex;
@@ -25,6 +51,17 @@
  align-items: center;
 }
 
+.game-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.study-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 메인페이지 */
 .main-container {
   display: flex;
   height: 90%;
@@ -49,7 +86,7 @@
 }
 
 
-
+/* 학습페이지 */
 .study-card-image {
   height: 15rem;
   object-fit: cover;

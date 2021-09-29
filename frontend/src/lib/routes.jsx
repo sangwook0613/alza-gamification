@@ -10,8 +10,12 @@ import Navi from '../component/navbar'
 import StudyPage from '../views/studyPage/index'
 import StudyDetailPage from '../views/studyDetailPage/index'
 
+
+
 const routes = (
+  
   <>
+
     <Navi/>
 
     {/* <Footer /> */}

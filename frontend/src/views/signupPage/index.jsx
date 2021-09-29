@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { signupUser, checkUserId } from '../../lib/store/store';
 import { onIdValidation, onNameValidation, onNicknameValidation, onPasswordValidation, onConfirmPasswordValidation } from './validation';
 import logo from '../../assets/user.png'
+import '../../styles/signup.css';
 
 const SignupPage = (props) => {
   const [id, setId] = useState('')

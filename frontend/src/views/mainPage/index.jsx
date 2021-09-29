@@ -18,20 +18,6 @@ const MainPage = (props) => {
           <h5 className="desc">게임으로 배우는 알고리즘과 자료구조</h5>
           <button className="startBtn">시작하기</button>
         </div>
-
-        <section class="flex scene">
-        <div class="confetti">
-          <figure class="confetti__image">
-            <svg viewBox="-225 -225 450 450" role="presentational" />
-          </figure>
-          <button class="button confetti__button" type="button">
-            <span class="button__text">
-              click me
-            </span>
-          </button>
-        </div>
-      </section>
-
         
 
 

@@ -1,0 +1,23 @@
+hr {
+  margin: 0px;
+  color: black;
+}
+
+#study {
+  padding-bottom: 50px;
+}
+
+#study img {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#study h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#study h1 {
+  font-weight: bold;
+}

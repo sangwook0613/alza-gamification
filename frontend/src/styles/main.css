@@ -127,11 +127,12 @@
 .test4 {
   width: 0px;
   height: 0px;
-  border-bottom: calc( 120px * 1.732 ) solid #84D7EC;
-  border-left: 120px solid transparent;
-  border-right: 120px solid transparent;
-  left: 681.27px;
-  top: auto;
+  border-bottom: calc( 100px * 1.732 ) solid #84D7EC;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  left: 670px;
+  /* top: auto; */
+  top: 30%;
   position: absolute;
   transform: rotate(39.54deg);
 }
@@ -144,6 +145,70 @@
   bottom: 9%;
   border-radius: 50%;
   background: #6B76FF;
+}
+
+.test-desc {
+  position: absolute;
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 2.5%;
+  bottom: 30%;
+}
+
+.test-desc .startBtn {
+  width: 40%;
+  font-size: 20px; 
+  padding: 10px 0;
+  background-color: transparent;
+  border-color: #6B76FF;
+  border-width: 10px;
+  border-radius: 30px;
+  color: #6B76FF;
+  /* color: #FFB000; */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.test-desc .desc {
+  margin-top: 10px;
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.test4 {
+  animation: rotate 6s linear infinite;
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+  40% {-webkit-transform: translateY(-30px) }
+  60% {-webkit-transform: translateY(-20px);}
+} 
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-30px);}
+  60% {transform: translateY(-20px);}
+} 
+
+
+.bounce {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
 }
 
 

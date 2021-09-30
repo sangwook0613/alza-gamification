@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 
 import stack_thumnail from '../../assets/study/stack_thumnail.jpg'
-import stack1 from '../../assets/study/stack1.PNG'
+// import stack1 from '../../assets/study/stack1.PNG'
 import stack2 from '../../assets/study/stack2.PNG'
 import stack3 from '../../assets/study/stack3.jpg'
 
@@ -41,12 +41,20 @@ import binarysearch3 from '../../assets/study/binarysearch3.PNG'
 import binarysearch4 from '../../assets/study/binarysearch4.PNG'
 import { Container } from 'react-bootstrap'
 import '../../styles/studyCard.css';
+
+
 function Stack() {
   return (
     <div id="study">
       <h1>Stack</h1>
       <Container style={{ width: "50%", textAlign: "left" }}>
-        <img src={stack_thumnail} alt="" />
+        {/* 링크 나중에 걸기. */}
+        <div id="fixed">
+          <button id="gameBtn">게임하기</button>
+        </div>
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={stack_thumnail} alt="" style={{width:"50%"}}/>
+        </div>
         <h2>스택이란?</h2>
         <p>
           스택은 배열의 끝에서만 데이터를 접근할 수 있는 자료 구조에요.
@@ -65,7 +73,9 @@ function Stack() {
         </p>
         <hr />
         {/* <img src={stack1} alt=""/> */}
-        <img src={stack2} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={stack2} alt="" style={{width:"70%"}}/>
+        </div>
         <h2>스택의 동작</h2>
         <p>
           스택의 동작은 아래와 같이 이루어져요. 위 그림을 함께 참고하며 생각해보세요.
@@ -86,7 +96,9 @@ function Stack() {
           스택에 있는 항목을 삭제할 때는 top의 위치에서 항목을 삭제한 후 top의 위치를 1만큼 감소시켜줘요.
         </p>
         <hr />
-        <img src={stack3} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={stack3} alt=""/>
+        </div>
         <h2>실생활 예</h2>
         <p>
           위에서 설명한 책, 접시 같은 상황 이외에도 다양한 상황을 예로 들어볼 수 있을거에요.
@@ -110,7 +122,12 @@ function Queue() {
     <div id="study">
       <h1>Queue</h1>
       <Container style={{ width: "50%", textAlign: "left" }}>
-        <img src={queue_thumnail} alt="" />
+        <div id="fixed">
+          <button id="gameBtn">게임하기</button>
+        </div>
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={queue_thumnail} alt="" style={{width:"60%"}}/>
+        </div>
         <h2>큐란?</h2>
         <p>
           큐는 배열에 항목이 들어온 순서대로 접근 가능한 자료구조에요. 먼저 들어온 항목이 먼저 나가는 구조 (선입선출; first in, first out)
@@ -121,7 +138,9 @@ function Queue() {
           롤러코스터를 타기 위해 줄을 먼저 선 사람이 먼저 탈 수 있겠죠? 큐의 동작과 아주 흡사해요!
         </p>
         <hr />
-        <img src={queue1} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={queue1} alt="" style={{width:"60%"}}/>
+        </div>
         <h2>큐의 동작</h2>
         <p>
           큐의 동작은 아래와 같이 이루어져요.
@@ -145,7 +164,9 @@ function Queue() {
           큐에 있는 항목을 제거할 때에는 front 위치에서 항목을 제거한 후 한 칸 앞으로 이동해요.
         </p>
         <hr />
-        <img src={queue3} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={queue3} alt=""/>
+        </div>
         <h2>실생활 예</h2>
         <p>
           큐의 또다른 예시는 뭐가 있을까요?
@@ -168,7 +189,12 @@ function Graph() {
     <div id="study">
       <h1>Graph</h1>
       <Container style={{ width: "50%", textAlign: "left" }}>
-        <img src={graph_thumnail} alt="" />
+        <div id="fixed">
+          <button id="gameBtn">게임하기</button>
+        </div>
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={graph_thumnail} alt="" style={{width:"60%"}}/>
+        </div>
         <h2>그래프란?</h2>
         <p>
           그래프는 공집합이 아닌 정점(Vertex)의 유한집합 V와 두 정점의 연결선이 간선(Edge)의 집합 E로 구성되는 특수한 형태의 자료구조에요
@@ -178,7 +204,9 @@ function Graph() {
           설명이 조금 어렵게 느껴지시나요? 그럼 조금 더 자세히 알아보도록 할까요?
         </p>
         <hr />
-        <img src={graph1} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={graph1} alt="" style={{width:"60%"}}/>
+        </div>
         <h2>그래프의 구성 및 용어 표현</h2>
         <p style={{ fontWeight: "bold" }}>
           정점(Vertex)
@@ -211,14 +239,18 @@ function Graph() {
         <p>
           하나하나 알아보도록 할까요?
         </p>
-        <img src={graph2} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={graph2} alt="" style={{width:"40%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           1. 무방향 그래프 (Undirected Graph)
         </p>
         <p>
           무방향 그래프는 말 그대로 간선에 방향이 없는 그래프에요. 간선으로 연결된 노드는 서로 인접해 있죠.
         </p>
-        <img src={graph3} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={graph3} alt="" style={{width:"13%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           2. 방향 그래프 (Directed Graph)
         </p>
@@ -229,14 +261,18 @@ function Graph() {
           정점 A에서 정점 B 를 연결하는 방향 그래프가 있다면,
           A에서 B로 가는 경로는 있지만 B에서 A로 가는 경로는 존재하지 않아요.
         </p>
-        <img src={graph4} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={graph4} alt="" style={{width:"40%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           3. 부분 그래프 (Sub Graph)
         </p>
         <p>
           부분 그래프는 어떤 그래프에 대해 일부 정점과 간선으로만 이루어진 그래프를 말해요.
         </p>
-        <img src={graph5} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={graph5} alt="" style={{width:"40%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           4. 완전 그래프 (Complete Graph)
         </p>
@@ -271,6 +307,9 @@ function List() {
     <div id="study">
       <h1>List</h1>
       <Container style={{ width: "50%", textAlign: "left" }}>
+        <div id="fixed">
+          <button id="gameBtn">게임하기</button>
+        </div>
         <img src="" alt="" />
         <h2>리스트란?</h2>
         <p>
@@ -329,7 +368,12 @@ function Tree() {
     <div id="study">
       <h1>Tree</h1>
       <Container style={{ width: "50%", textAlign: "left" }}>
-        <img src={tree_thumnail} alt="" />
+        <div id="fixed">
+          <button id="gameBtn">게임하기</button>
+        </div>
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={tree_thumnail} alt="" style={{width:"70%"}}/>
+        </div>
         <h2>트리란?</h2>
         <p>
           트리는 계층적 데이터를 저장하고 활용하기 위한 자료구조에요.
@@ -350,7 +394,9 @@ function Tree() {
           음, 여전히 트리가 무엇인지 감이 안 잡히신다구요? 그럼 아래 내용을 계속 읽어보면서 하나하나 배워볼까요?
         </p>
         <hr />
-        <img src={tree2} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={tree2} alt="" style={{width:"90%"}}/>
+        </div>
         <h2>트리의 구성 및 용어 표현</h2>
         <p style={{ fontWeight: "bold" }}>노드, 에지</p>
         <p>
@@ -392,7 +438,9 @@ function Tree() {
         <p>
           트리는 목적에 따라 다양하게 종류가 나누어 지는데요. 몇 가지 중요한 트리에 대해 설명해 드릴게요!
         </p>
-        <img src={tree3} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={tree3} alt="" style={{width:"50%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           1. 이진 트리
         </p>
@@ -444,7 +492,12 @@ function Sort() {
     <div id="study">
       <h1>Sort</h1>
       <Container style={{ width: "50%", textAlign: "left" }}>
-        <img src={sort_thumnail} alt="" />
+        <div id="fixed">
+          <button id="gameBtn">게임하기</button>
+        </div>
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={sort_thumnail} alt="" style={{width:"80%"}}/>
+        </div>
         <h2>정렬이란?</h2>
         <p>
           알고리즘에서 정렬이란, 말 그대로 어떤 항목들로 이루어진 그룹을 조건에 맞춰 다시 배치시키는 것이에요.
@@ -466,7 +519,9 @@ function Sort() {
         </p>
         <hr />
         <h2 style={{ marginTop: "50px" }}>정렬의 종류</h2>
-        <img src={bubble_sort} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={bubble_sort} alt="" style={{width:"50%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           1. 버블 정렬
         </p>
@@ -493,12 +548,13 @@ function Sort() {
         </p>
         <p>
           하지만, 아직 앞쪽은 정렬이 되지 않았기 때문에 맨 마지막 값(가장 큰 값)을 제외하고 다시 버블 정렬을 반복해서 해줘야해요.
-
         </p>
         <p>
           그렇게 총 5번의 버블 정렬을 마치고 나면, 오름차순으로 정렬된 결과를 확인할 수 있을 거에요.
         </p>
-        <img src={selection_sort} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={selection_sort} alt="" style={{width:"50%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           2. 선택 정렬
         </p>
@@ -517,7 +573,9 @@ function Sort() {
         <p>
           이런식으로 바꾸다보면, 위 그림과 같은 과정을 통해 최종적으로 오름차순으로 정렬된 결과를 얻을 수 있어요. 어렵지 않죠?
         </p>
-        <img src={insertion_sort} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={insertion_sort} alt="" style={{width:"50%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           3. 삽입 정렬
         </p>
@@ -562,7 +620,12 @@ function BinarySearch() {
     <div id="study">
       <h1>Binary Search</h1>
       <Container style={{ width: "50%", textAlign: "left" }}>
-        <img src={binarysearch2} alt="" />
+        <div id="fixed">
+          <button id="gameBtn">게임하기</button>
+        </div>
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={binarysearch2} alt="" style={{width:"80%"}}/>
+        </div>
         <h2>이분 탐색이란?</h2>
         <p>
           이분 탐색은 정렬된 배열 내에서 찾고자 하는 값의 위치를 찾는 탐색이에요.
@@ -592,12 +655,16 @@ function BinarySearch() {
           어때요, 어렵지 않죠?
         </p>
         <hr />
-        <img src={binarysearch1} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={binarysearch1} alt="" style={{width:"70%"}}/>
+        </div>
         <h2>장점과 단점</h2>
         <p>
           이분 탐색에 대해 이해가 되셨나요? 그렇다면 이분탐색의 장점과 단점은 무엇이 있는지 알아볼까요?
         </p>
-        <img src={binarysearch4} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={binarysearch4} alt="" style={{width:"50%"}}/>
+        </div>
         <p style={{ fontWeight: "bold" }}>
           장점
         </p>
@@ -640,6 +707,9 @@ function GraphTraversal() {
     <div id="study">
       <h1>Graph Traversals</h1>
       <Container style={{ width: "50%", textAlign: "left" }}>
+        <div id="fixed">
+          <button id="gameBtn">게임하기</button>
+        </div>
         <img src={graphtraversal_thumnail} alt="" />
         <Link to={"/study/ds/3"}>그래프란?</Link>
         <br />
@@ -652,7 +722,9 @@ function GraphTraversal() {
           DFS와 BFS가 바로 그것인데요. 각각 무엇을 의미하는지, 어떤 방식으로 탐색이 진행되는지 차근차근 알아볼까요?
         </p>
         <hr />
-        <img src={DFS} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={DFS} alt="" style={{width:"40%"}}/>
+        </div>
         <h2>DFS란</h2>
         <p>
           DFS(Depth First Search)는 그래프와 트리에서 깊이를 우선으로 탐색하는 방법이에요.
@@ -670,7 +742,9 @@ function GraphTraversal() {
           이처럼 한 쪽 끝까지 우선 탐색하는 것이 DFS 에요.
         </p>
         <hr />
-        <img src={BFS} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={BFS} alt="" style={{width:"40%"}}/>
+        </div>
         <h2>BFS란</h2>
         <p>
           BFS(Breadth First Search)는 DFS와는 반대로 너비를 우선으로 탐색하는 방법이에요.
@@ -688,7 +762,9 @@ function GraphTraversal() {
           위에 나온 그림은 한가지 예시에 불과하고, 같은 깊이에 있는 값을 탐색하는 순서는 언제든지 바뀔수 있으니 참고만 하라구요!
         </p>
         <hr />
-        <img src={graphtraversal1} alt="" />
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <img src={graphtraversal1} alt="" style={{width:"100%"}}/>
+        </div>
         <h2>DFS와 BFS의 예</h2>
         <p>
           그럼 우리, DFS와 BFS에는 어떤 예제가 있는지 한번 생각해 보는 시간을 가져볼까요?

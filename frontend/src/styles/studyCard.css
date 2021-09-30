@@ -21,3 +21,24 @@ hr {
 #study h1 {
   font-weight: bold;
 }
+
+#fixed {
+  position: fixed;
+  right: 20%;
+}
+
+#gameBtn {
+  height: 80px;
+  width: 80px;
+  font-size: 20px; 
+  padding: 10px 0;
+  background-color: #6562CF;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  text-align: center;
+}
+
+hr {
+  margin-top: 30px;
+}

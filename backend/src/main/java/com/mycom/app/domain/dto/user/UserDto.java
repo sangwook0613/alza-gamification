@@ -1,4 +1,4 @@
-package com.mycom.app.domain.dto;
+package com.mycom.app.domain.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

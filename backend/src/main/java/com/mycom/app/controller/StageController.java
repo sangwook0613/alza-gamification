@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 
-@RequestMapping("/stage")
+@RequestMapping("/api/stage")
 //@RequestMapping("/api/stage")
 public class StageController {
 

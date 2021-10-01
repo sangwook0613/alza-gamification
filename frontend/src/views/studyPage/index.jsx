@@ -34,7 +34,7 @@ function StructStudyList() {
       <div className="col" key={struct_contents[i].id}>
         <div className="card" style={{boxShadow:"2px 2px 2px 2px #C4C4C4"}}><NavLink to={"/study/ds/"+struct_contents[i].id} style={{textDecoration:"none", textAlign:"left", display: "flex", flexDirection: "column", alignItems:"center"}}>
           <img src={struct_contents[i].img} className="card-img-top" alt="" style={{height:"200px"}} />
-          <div className="card-body" style={{width:"87%", padding:"16px 0px 0px 0px", }}>
+          <div className="card-body" style={{width:"87%", padding:"16px 0px 0px 0px" }}>
             <h5 className="card-title" style={{color:"black", fontWeight:"bold"}} >{struct_contents[i].title}</h5>
             <p className="card-text" style={{color:"black", fontSize:"13px"}}>{struct_contents[i].desc}</p>
             <hr/>

@@ -72,18 +72,105 @@
 .gamelist-container>h1 {
 	font-weight: 900;
 	margin-top: 80px;
-	margin-bottom: 100px;
+	margin-bottom: 90px;
 }
 
+/* 반응형 */
+.responsive {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 60px;
+}
 
+.responsive .card {
+	transform: translate(-50%,-50%);
+}
 
+.card .image {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
 
+.card .image img {
+	width: 100%;
+	transition: .5s;
+}
 
+.card:hover .image img {
+	opacity: .5;
+	transform: translateX(30%);/*100%*/
+}
 
+.card .details {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70%;/*100%*/
+	height: 100%;
+	background: white;
+	transition: .5s;
+	transform-origin: left;
+	transform: perspective(2000px) rotateY(-90deg);
+}
 
+.card:hover .details {
+	transform: perspective(2000px) rotateY(0deg);
+}
 
+.card .details .center {
+	height: 80%;
+	text-align: center;
+	background: #fff;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
 
+.card .details .center .detail-title {
+	height: 10%;
+}
 
+.card .details .center .detail-title h1 {
+	font-weight: 700;
+	font-size: 4vw;
+}
+
+.card .details .center .detail-desc {
+	height: 55%;
+}
+
+.card .details .center .detail-desc p {
+	margin: 7% 8% 4% 8%;
+	padding: 0;
+	font-size: 2.6vw;
+}
+
+.card .details .center .detail-btn {
+	height: 15%;
+}
+
+.card .details .detail-btn .custom {
+	width: 80%;
+	background-color: white;
+	border-width: 1px;
+	border-color: #6762CF;
+  border-radius: 10px;
+	color: #6762cf;
+  text-align: center;
+	margin-top: 3%;
+}
+
+.card .details .detail-btn .link .custom .text {
+	margin-left: 3%;
+}
+
+.card .details .detail-btn .link:hover>.custom {
+	background-color: #6762cf;
+	border-width: 1px;
+	color: white;
+}
 
 
 

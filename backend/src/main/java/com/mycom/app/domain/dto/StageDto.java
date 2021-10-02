@@ -7,13 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
-
+public class StageDto {
+    private long stageId;
     private String userId;
-    private String password;
-    private String userName;
-    private String userNickName;
-    private String userTel;
-    private String userEmail;
+    private String gameCode;
+    private String curStage;
 
 }

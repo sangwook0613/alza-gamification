@@ -12,6 +12,7 @@ const MyPage = (props) => {
   const refreshToken = sessionStorage.getItem('refreshToken')
   const [userInfoUpdateModalOn, setUserInfoUpdateModalOn] = useState(false)
   const [userDeleteModalOn, setUserDeleteModalOn] = useState(false)
+  const [userPasswordUpdateModalOn, setUserPasswordUpdateModalOn] = useState(false)
   const [userInfo, setUserInfo] = useState({
     'userId': '',
     'userName': '',
@@ -35,6 +36,10 @@ const MyPage = (props) => {
   const handleUserDeleteModal = () => {
     console.log('userDeleteModalOn')
     setUserDeleteModalOn(!userDeleteModalOn)
+  }
+  const handleUserPasswordUpdateModal = () => {
+    console.log('userPasswordUpdateModalOn')
+    setUserPasswordUpdateModalOn(!userPasswordUpdateModalOn)
   }
 
   useEffect(() => {
@@ -75,7 +80,7 @@ const MyPage = (props) => {
       <h1>{userId} 마이페이지</h1>
       <div >
         <button onClick={handleUserInfoUpdateModal}>회원정보 수정</button>
-        <button>비밀번호 변경</button>
+        <button onClick={handleUserPasswordUpdateModal}>비밀번호 변경</button>
         <button onClick={handleUserDeleteModal}>회원 탈퇴</button>
       </div>
       <section className="mypage-main">
@@ -101,16 +106,22 @@ const MyPage = (props) => {
       <div>
         {userInfoUpdateModalOn &&
           <Modal
-          modalType="InfoUpdateModal"
-          onClose={handleUserInfoUpdateModal}
-          {...userInfo}
+            modalType="InfoUpdateModal"
+            onClose={handleUserInfoUpdateModal}
+            {...userInfo}
           />
         }
         {userDeleteModalOn &&
           <Modal
-          modalType="UserDeleteModal"
-          onClose={handleUserDeleteModal}
-          {...userInfo}
+            modalType="UserDeleteModal"
+            onClose={handleUserDeleteModal}
+            {...userInfo}
+          />
+        }
+        {userPasswordUpdateModalOn &&
+          <Modal
+            modalType="PasswordUpdateModal"
+            onClose={handleUserPasswordUpdateModal}
           />
         }
       </div>

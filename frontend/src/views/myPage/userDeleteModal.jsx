@@ -32,7 +32,7 @@ const UserDeleteModal = (props) => {
 
   return (
     <>
-      <span style={{fontWeight: 'bold'}}>회원정보 수정</span>
+      <span style={{fontWeight: 'bold'}}>회원 탈퇴</span>
       <hr />
       <span style={{display: 'block', marginBottom: '25px'}}>
         정말 탈퇴하시겠습니까??

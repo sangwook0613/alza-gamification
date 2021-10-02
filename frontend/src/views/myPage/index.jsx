@@ -6,6 +6,7 @@ import profile_img from '../../assets/user.png';
 import './myPage.css';
 
 const MyPage = (props) => {
+  // console.log(props)
   const userId = props.match.params.username
   const accessToken = sessionStorage.getItem('accessToken')
   const refreshToken = sessionStorage.getItem('refreshToken')

@@ -22,7 +22,7 @@ const UserDeleteModal = (props) => {
         sessionStorage.removeItem('refreshToken')
         sessionStorage.removeItem('userId')
         props.onClose()
-        //props.history.push('/game')
+        // props.history.push('/game')
       })
       .catch((err) => {
         console.log(err)

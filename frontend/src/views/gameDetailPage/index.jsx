@@ -1,132 +1,145 @@
 import React, { useState } from 'react';
-import '../../styles/gameDesc.css';
-import Container from 'react-bootstrap/Container'
-import { Row, Col } from 'react-bootstrap';
-import Modal from 'react-bootstrap/Modal'
-import Offcanvas from 'react-bootstrap/Offcanvas'
-import Button from '@restart/ui/esm/Button';
 import {Link} from 'react-router-dom';
+import Container from 'react-bootstrap/Container'
+import '../../styles/gameDesc.css';
+
 
 function GameDetailPage(props) {
-  // console.log(props)
+  // console.log(props.location.state)
   const type = props.match.params.category
   const gameId = props.match.params.gameId
-  const data = props.location.state.data
-  const [show, setShow] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const handleCloseMenu = () => setShowMenu(false);
-  const handleShowMenu = () => setShowMenu(true);
+  const ds = props.location.state.ds
+  const algo = props.location.state.algo
+  
+
+  //게임 메뉴
+  const [showGames, setShowGames] = useState(false);
+  const openGames = (e) => {
+    setShowGames(showGames => !showGames);
+  }
+
 
   return(
     <div>
-      <h1>{data[gameId-1].title}</h1>
+      <div className="game-header">
+        { type === "ds" ?
+          <h1 className="game-title">{ds[gameId-1].title}</h1>
+          :
+          <h1 className="game-title">{algo[gameId-1].title}</h1>
+        }
+      </div>
+      
       <Container>
-        <Row>
-          <Col sm={2}>
-            <Button onClick={handleShow}>설명</Button>
-            <Button variant="primary" onClick={handleShowMenu}>
-              Menu
-            </Button>
-          </Col>
-          <Col sm={{ span: 8, offset: 1 }} className="game-play">
-            게임 들어갈 위치
-          </Col>
-        </Row>
+        <div className="game-play">
+          게임 들어갈 위치
+        </div>
       </Container>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>게임 조작법</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>자세한 게임 조작법은 여기에 들어갈 예정입니다!</Modal.Body>
-        <Modal.Footer>
-          <Link to={`/study/${type}/${data[gameId-1].id}`}>
-            <button>관련 학습 하러가기</button>
+      <div>
+        <div className={`menu ${showGames ? "" : "closed"}`}>
+          <div className="stack button">
+            <Link to={{
+                pathname: "/game/ds/1",
+                state: {
+                  ds: ds,
+                  algo: algo
+                }
+              }} className="game-atag">
+              <div className="size-outline">
+                <img src={ds[0].img} alt="" className="game-img"/>
+                <p className="game-type">스택</p>
+              </div>
+            </Link>
+          </div>
+          <div className="queue button">
+            <Link to={{
+                pathname: "/game/ds/2",
+                state: {
+                  ds: ds,
+                  algo: algo
+                }
+              }} className="game-atag">
+              <div className="size-outline">
+                <img src={ds[1].img} alt="" className="game-img"/>
+                <p className="game-type size1">큐</p>
+              </div>
+            </Link>
+          </div>
+          <div className="graph button">
+            <Link to={{
+                pathname: "/game/ds/3",
+                state: {
+                  ds: ds,
+                  algo: algo
+                }
+              }} className="game-atag">
+              <div className="size-outline">
+                <img src={ds[2].img} alt="" className="game-img"/>
+                <p className="game-type size2">그래프</p>
+              </div>
+            </Link>
+          </div>
+          <div className="tree button">
+            <Link to={{
+                pathname: "/game/ds/4",
+                state: {
+                  ds: ds,
+                  algo: algo
+                }
+              }} className="game-atag">
+              <div className="size-outline">
+                <img src={ds[3].img} alt="" className="game-img"/>
+                <p className="game-type">트리</p>
+              </div>
+            </Link>
+          </div>
+          <div className="sort button">
+           <Link to={{
+                pathname: "/game/algo/1",
+                state: {
+                  ds: ds,
+                  algo: algo
+                }
+              }} className="game-atag">
+              <div className="size-outline">
+                <img src={algo[0].img} alt="" className="game-img"/>
+                <p className="game-type">정렬</p>
+              </div>
+            </Link>
+          </div>
+          <div className="mid button">
+            <Link to={{
+                pathname: "/game/algo/2",
+                state: {
+                  ds: ds,
+                  algo: algo
+                }
+              }} className="game-atag">
+              <div className="size-outline">
+                <img src={algo[1].img} alt="" className="game-img"/>
+                <p className="game-type">탐색</p>
+              </div>
+            </Link>
+          </div>
+          { showGames === false ?
+            <div className="main button" onClick={openGames}>Menu</div>
+            :
+            <div className="main button" onClick={openGames}>Close</div>
+          }
+       </div>
+      </div>
+
+      <div className="go-to-study">
+       { type === "ds" ?
+          <Link to={`/study/${type}/${ds[gameId-1].id}`} className="game-atag">
+              <button className="after-study">관련 학습 하러가기</button>
           </Link>
-        </Modal.Footer>
-      </Modal>
-
-
-      <Offcanvas show={showMenu} onHide={handleCloseMenu}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>다른 게임은 뭐가 있지?!</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          { type === "ds" ? 
-           <div>
-            <Link to={{
-              pathname: "1",
-              state: {
-                data: data
-              }
-            }}>
-            <button><span>스택</span></button>
-            </Link>
-            <Link to={{
-              pathname: "2",
-              state: {
-                data: data
-              }
-            }}>
-            <button><span>큐</span></button>
-            </Link>
-            <Link to={{
-              pathname: "3",
-              state: {
-                data: data
-              }
-            }}>
-            <button><span>트리</span></button>
-            </Link>
-            <Link to={{
-              pathname: "4",
-              state: {
-                data: data
-              }
-            }}>
-            <button><span>그래프</span></button>
-            </Link>
-            <Link to={{
-              pathname: "5",
-              state: {
-                data: data
-              }
-            }}>
-            <button><span>리스트</span></button>
-            </Link>
-
-           </div>
           :
-          <div>
-            <Link to={{
-              pathname: "1",
-              state: {
-                data: data
-              }
-            }}>
-            <button><span>정렬</span></button>
-            </Link>
-            <Link to={{
-              pathname: "2",
-              state: {
-                data: data
-              }
-            }}>
-            <button><span>전중후위순회</span></button>
-            </Link>
-            <Link to={{
-              pathname: "3",
-              state: {
-                data: data
-              }
-            }}>
-            <button><span>dfs bfs</span></button>
-            </Link>
-          </div> }
-        </Offcanvas.Body>
-      </Offcanvas>
+          <Link to={`/study/${type}/${algo[gameId-1].id}`} className="game-atag">
+              <button className="after-study">관련 학습 하러가기</button>
+          </Link>
+        }
+      </div>
     </div>
   )
 } 

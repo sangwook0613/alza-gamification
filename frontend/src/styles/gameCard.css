@@ -1,42 +1,97 @@
 .gamecard-container {
-  box-shadow: 0 15px 30px 1px grey;
-	background: rgba(255, 255, 255, 0.90);
-	text-align: center;
+	background: white;
 	border-radius: 5px;
 	overflow: hidden;
-	margin: 5em auto;
+	margin: 2em auto;
 	height: 350px;
-	width: 900px;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+}
+
+.gamecard {
+	display: flex;
+	align-items: center;
+	width: 100%;
 }
 
 .game-details {
 	position: relative;
-	text-align: left;
-	overflow: hidden;
-	padding: 30px;
-	height: 100%;
 	float: left;
-	width: 40%;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	padding-right: 5%;
 }
 
-.gamecard-container .game-details h1{
-	font-family: 'Bebas Neue', cursive;
-	display: inline-block;
-	position: relative;
-	font-size: 30px;
-	color: #344055;
-	margin: 0;
+.game-details>h1 {
+	font-weight: 900;
+}
+
+.game-details .control .custom {
+	width: 30%;
+  font-size: 20px; 
+  padding: 10px 0;
+  background-color: white;
+	border-width: 1px;
+	border-color: #6762CF;
+  border-radius: 10px;
+  color: #6762CF;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.game-details .control .custom:hover {
+	background-color: #6762CF;
+  color: white;
+}
+
+.game-details .control .custom .text {
+	margin-left: 10px;
 }
 
 .game-image {
-	transition: all 0.3s ease-out;
-	display: inline-block;
 	position: relative;
-	overflow: hidden;
-	height: 100%;
 	float: right;
-	width: 45%;
-	display: inline-block;
+	width: 40%;
+	height: 100%;
+	overflow: hidden;
 }
 
-.gamecard-container img {width: 100%;height: 100%;}
+.game-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gamecard-container hr {
+	margin-top: 30px;
+}
+
+.gamelist-container>h1 {
+	font-weight: 900;
+	margin-top: 80px;
+	margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

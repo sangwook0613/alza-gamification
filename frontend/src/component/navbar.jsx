@@ -3,8 +3,8 @@ import { Navbar, NavDropdown, Container } from 'react-bootstrap';
 import '../styles/main.css';
 
 function Navi(){
-  // const username = sessionStorage.getItem('userId')
-  const username = ''
+  const username = sessionStorage.getItem('userId')
+  // const username = ''
   return (
     <Navbar expand="lg">
     <Container>

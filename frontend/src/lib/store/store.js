@@ -6,6 +6,7 @@ const SIGNUP_USER = 'SIGNUP_USER'
 const LOGIN_USER = 'LOGIN_USER'
 const CHECK_ID = 'CHECK_ID'
 const USER_INFO = 'USER_INFO'
+const DELETE_USER = 'DELETE_USER'
 
 export const signupUser = (input) => {
   const response = requestData("post", '/user', input)
@@ -47,6 +48,19 @@ export const getUserInfo = (id, input) => {
   }
 }
 
+export const deleteUser = (id, input) => {
+  const headers = {
+    'access-token': input.accessToken,
+    'refresh-token': input.refreshToken
+  }
+  const response = requestData("delete", `/api/user/${id}`, input, headers)
+  return {
+    type: DELETE_USER,
+    payload: response,
+  }
+}
+
+
 // 좀 더 직관적으로 이해하기 위해 우선 createReducer를 사용하지 않는다.
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -58,6 +72,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, success: action.payload }
     case USER_INFO:
       return { ...state}
+    case DELETE_USER:
+      return { ...state, success: action.payload}
     default:
       return state
   }

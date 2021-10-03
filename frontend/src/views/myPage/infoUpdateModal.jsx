@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { signupUser, checkUserId } from '../../lib/store/store';
+import { updateUserInfo } from '../../lib/store/store';
 import { onNicknameValidation } from '../signupPage/validation';
 
 const InfoUpdateModal = (props) => {
-  console.log(props)
-  const userInfo = {
-    '아이디': props.userId,
-    '이름': props.userName,
-    '닉네임': props.userNickName,
-    '이메일': props.userEmail,
-    '전화번호': props.userTel,
-  }
-
+  const userId = sessionStorage.getItem('userId')
+  const accessToken = sessionStorage.getItem('accessToken')
+  const refreshToken = sessionStorage.getItem('refreshToken')
   const [email, setEmail] = useState(props.userEmail)
   const [phoneNum, setPhoneNum] = useState(props.userTel)
   const [nickname, setNickname] = useState(props.userNickName)
   const [nicknameErrorMessage, setNicknameErrorMessage] = useState('')
   const dispatch = useDispatch()
+  console.log(props)
+
   
   const onNicknameHandle = (e) => {
     setNickname(e.currentTarget.value)
@@ -42,6 +38,29 @@ const InfoUpdateModal = (props) => {
 
   const onSubmit = () => {
     console.log('Submit')
+    const body = {
+      accessToken,
+      refreshToken,
+      userId,
+      userNickName: nickname,
+      userTel: phoneNum,
+      userEmail: email,
+    }
+    if (checkValidation()) {
+      dispatch(updateUserInfo(body))
+        .then((res) => {
+          console.log(res)
+          alert('수정되었습니다')
+          props.onClose()
+          // props.history.push('/game')
+        })
+        .catch((err) => {
+          console.log(err)
+          alert('에러발생')
+        })
+    } else {
+      alert('올바르게 작성해주세요!')
+    }
   }
 
   return (

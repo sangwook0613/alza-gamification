@@ -2,6 +2,7 @@ import { createPortal } from "react-dom";
 import '../styles/modal.css'
 import InfoUpdateModal from '../views/myPage/infoUpdateModal';
 import UserDeleteModal from '../views/myPage/userDeleteModal';
+import PasswordUpdateModal from '../views/myPage/passwordUpdateModal';
 
 function Modal(props) {
   const userInfo = {
@@ -11,6 +12,7 @@ function Modal(props) {
     'userEmail': props.userEmail,
     'userTel': props.userTel,
   }
+  const onClose = props.onClose
   console.log(props)
 
   return createPortal(
@@ -19,13 +21,18 @@ function Modal(props) {
         <div className="modalInner">
           {(props.modalType === "InfoUpdateModal") &&
             <InfoUpdateModal
-              onClose={props.onClose}
+              onClose={onClose}
               {...userInfo}
             />
           }
           {(props.modalType === "UserDeleteModal") &&
             <UserDeleteModal
-              onClose={props.onClose}
+              onClose={onClose}
+            />
+          }
+          {(props.modalType === "PasswordUpdateModal") &&
+            <PasswordUpdateModal
+              onClose={onClose}
             />
           }
         </div>

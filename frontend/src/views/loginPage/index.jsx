@@ -6,6 +6,7 @@ import '../../styles/login.css';
 
 import stack_thumnail from '../../assets/study/stack_thumnail.png'
 import logo from '../../assets/user.png'
+import { useMediaQuery } from 'react-responsive'
 
 const LoginPage = (props) => {
   const [id, setId] = useState('')
@@ -51,37 +52,67 @@ const LoginPage = (props) => {
       })
   }
 
+  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
   return (
     <>
-      <div style={{display:"flex", height:"90%"}}>
-        <div style={{width:"50%"}}>
-          <img src={stack_thumnail} alt="" style={{width:"100%", height:"100%"}}/>
-        </div>
-        <div style={{width:"50%", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          
-          <img src={logo} alt="" style={{width:"10%", marginBottom:"50px"}}/>
-          
-          <form
-            className="loginForm"
-            onSubmit={onSubmit}
-            style={{ width:"40%", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}
-          >
-            
-            <div id="id_line">
-              <i className="fas fa-user" id="idIcon"></i>
-              <input type="text" style={{width:"100%"}} value={id} onChange={onIdHandle} placeholder="아이디"
-              />
-            </div>
+      {isDesktopOrLaptop &&
+        <div style={{ display: "flex", height: "90%" }}>
+          <div style={{ width: "50%" }}>
+            <img src={stack_thumnail} alt="" style={{ width: "100%", height: "100%" }} />
+          </div>
+          <div style={{ width: "50%", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
-            <div id="pw_line">
-            <i className="fas fa-lock" id="pwIcon"></i>
-              <input type="password" style={{width:"100%"}} value={password} onChange={onPasswordHandle} placeholder="패스워드"/>
-            </div>
+            <img src={logo} alt="" style={{ width: "10%", marginBottom: "50px" }} />
 
-            <button className="etcBtn" type="submit">LOGIN</button>
-          </form>
+            <form
+              className="loginForm"
+              onSubmit={onSubmit}
+              style={{ width: "40%", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
+            >
+
+              <div id="id_line">
+                <i className="fas fa-user" id="idIcon"></i>
+                <input type="text" style={{ width: "100%" }} value={id} onChange={onIdHandle} placeholder="아이디"
+                />
+              </div>
+
+              <div id="pw_line">
+                <i className="fas fa-lock" id="pwIcon"></i>
+                <input type="password" style={{ width: "100%" }} value={password} onChange={onPasswordHandle} placeholder="패스워드" />
+              </div>
+
+              <button className="etcBtn" type="submit">LOGIN</button>
+            </form>
+          </div>
         </div>
-      </div>
+      }
+      {isTabletOrMobile &&
+        <div style={{ display: "flex", height: "90%" }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={logo} alt="" style={{ width: "30%", marginBottom: "50px" }} />
+            <form
+              className="loginForm"
+              onSubmit={onSubmit}
+              style={{ width: "60%", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
+            >
+
+              <div id="id_line">
+                <i className="fas fa-user" id="idIcon"></i>
+                <input type="text" style={{ width: "100%" }} value={id} onChange={onIdHandle} placeholder="아이디"
+                />
+              </div>
+
+              <div id="pw_line">
+                <i className="fas fa-lock" id="pwIcon"></i>
+                <input type="password" style={{ width: "100%" }} value={password} onChange={onPasswordHandle} placeholder="패스워드" />
+              </div>
+
+              <button className="etcBtn" type="submit">LOGIN</button>
+            </form>
+          </div>
+        </div>
+      }
     </>
   )
 };

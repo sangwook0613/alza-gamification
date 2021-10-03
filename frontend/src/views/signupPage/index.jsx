@@ -5,7 +5,7 @@ import { signupUser, checkUserId } from '../../lib/store/store';
 import { onIdValidation, onNameValidation, onNicknameValidation, onPasswordValidation, onConfirmPasswordValidation } from './validation';
 import logo from '../../assets/user.png'
 import '../../styles/signup.css';
-
+import { useMediaQuery } from 'react-responsive'
 const SignupPage = (props) => {
   const [id, setId] = useState('')
   const [name, setName] = useState('')
@@ -21,7 +21,7 @@ const SignupPage = (props) => {
   const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] = useState('')
   // const [validationCheck, setValidationCheck] = useState(0)
   const dispatch = useDispatch()
-  
+
 
   const onIdHandle = (e) => {
     setId(e.currentTarget.value)
@@ -106,120 +106,238 @@ const SignupPage = (props) => {
       alert('올바르게 작성해주세요!')
     }
   }
-
+  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
 
   return (
-    <div style={{display:"flex", alignItems:"center", flexDirection: 'column'}}>
-      <img src={logo} alt="" style={{width:"10%", margin:"30px"}}/>
-      <div style={{width:"25%"}}>
-        <form
-          className="signupForm"
-          onSubmit={onSubmit}
-          style={{ display: 'flex', flexDirection: 'column', textAlign:'start'}}
-          action="/user"
-          method="POST"
-        >
-          <div id="signup_line">
-            <i className="fas fa-user" id="icon"></i>
-            <input
-              type="text"
-              value={id}
-              onBlur={validId}
-              onChange={onIdHandle}
-              placeholder="아이디*"
-            />
+    <>
+      {isDesktopOrLaptop &&
+        <div style={{ display: "flex", alignItems: "center", flexDirection: 'column' }}>
+          <img src={logo} alt="" style={{ width: "10%", margin: "30px" }} />
+          <div style={{ width: "25%" }}>
+            <form
+              className="signupForm"
+              onSubmit={onSubmit}
+              style={{ display: 'flex', flexDirection: 'column', textAlign: 'start' }}
+              action="/user"
+              method="POST"
+            >
+              <div id="signup_line">
+                <i className="fas fa-user" id="icon"></i>
+                <input
+                  type="text"
+                  value={id}
+                  onBlur={validId}
+                  onChange={onIdHandle}
+                  placeholder="아이디*"
+                />
+              </div>
+              {
+                idErrorMessage ?
+                  <p id="errormessage">{idErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+              <div id="signup_line">
+                <i className="fas fa-address-card" id="icon"></i>
+                <input
+                  type="text"
+                  value={name}
+                  onBlur={validName}
+                  onChange={onNameHandle}
+                  placeholder="이름*"
+                />
+              </div>
+              {
+                nameErrorMessage ?
+                  <p id="errormessage">{nameErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+
+              <div id="signup_line">
+                <i className="fab fa-android" id="icon"></i>
+                <input
+                  type="text"
+                  value={nickname}
+                  onBlur={validNickname}
+                  onChange={onNicknameHandle}
+                  placeholder="닉네임*"
+                />
+              </div>
+              {
+                nicknameErrorMessage ?
+                  <p id="errormessage">{nicknameErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+              <div id="signup_line">
+                <i className="fas fa-lock" id="icon"></i>
+                <input
+                  type="password"
+                  value={password}
+                  onBlur={validPassword}
+                  onChange={onPasswordHandle}
+                  placeholder="비밀번호*"
+                />
+              </div>
+              {
+                passwordErrorMessage ?
+                  <p id="errormessage">{passwordErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+              <div id="signup_line">
+                <i className="fas fa-check-circle" id="icon"></i>
+                <input
+                  type="password"
+                  value={confirmPassword}
+                  onBlur={validConfirmPassword}
+                  onChange={onConfirmPasswordHandle}
+                  placeholder="비밀번호 확인*"
+                />
+              </div>
+              {
+                confirmPasswordErrorMessage ?
+                  <p id="errormessage">{confirmPasswordErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+              <div id="signup_line">
+                <i className="fas fa-envelope" id="icon"></i>
+                <input type="email" value={email} onChange={onEmailHandle} placeholder="이메일" />
+              </div>
+
+              <div id="signup_line">
+                <i className="fas fa-phone" id="icon"></i>
+                <input type="text" value={phoneNum} onChange={onPhoneNumHandle} placeholder="전화번호" />
+              </div>
+
+              <button className="signup_btn" type="submit">회원가입</button>
+            </form>
+
           </div>
-          {
-            idErrorMessage ? 
-            <p id="errormessage">{idErrorMessage}</p>
-            :
-            <></>
-          }
+        </div>
+      }
+      {isTabletOrMobile &&
+        <div style={{ display: "flex", alignItems: "center", flexDirection: 'column', height:"90%", justifyContent:"center"}}>
+          <img src={logo} alt="" style={{ width: "20%", margin: "30px" }} />
+          <div style={{ width: "60%" }}>
+            <form
+              className="signupForm"
+              onSubmit={onSubmit}
+              style={{ display: 'flex', flexDirection: 'column', textAlign: 'start' }}
+              action="/user"
+              method="POST"
+            >
+              <div id="signup_line">
+                <i className="fas fa-user" id="icon"></i>
+                <input
+                  type="text"
+                  value={id}
+                  onBlur={validId}
+                  onChange={onIdHandle}
+                  placeholder="아이디*"
+                />
+              </div>
+              {
+                idErrorMessage ?
+                  <p id="errormessage">{idErrorMessage}</p>
+                  :
+                  <></>
+              }
 
-          <div id="signup_line">
-            <i className="fas fa-address-card" id="icon"></i>
-            <input
-              type="text"
-              value={name}
-              onBlur={validName}
-              onChange={onNameHandle}
-              placeholder="이름*"
-            />
+              <div id="signup_line">
+                <i className="fas fa-address-card" id="icon"></i>
+                <input
+                  type="text"
+                  value={name}
+                  onBlur={validName}
+                  onChange={onNameHandle}
+                  placeholder="이름*"
+                />
+              </div>
+              {
+                nameErrorMessage ?
+                  <p id="errormessage">{nameErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+
+              <div id="signup_line">
+                <i className="fab fa-android" id="icon"></i>
+                <input
+                  type="text"
+                  value={nickname}
+                  onBlur={validNickname}
+                  onChange={onNicknameHandle}
+                  placeholder="닉네임*"
+                />
+              </div>
+              {
+                nicknameErrorMessage ?
+                  <p id="errormessage">{nicknameErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+              <div id="signup_line">
+                <i className="fas fa-lock" id="icon"></i>
+                <input
+                  type="password"
+                  value={password}
+                  onBlur={validPassword}
+                  onChange={onPasswordHandle}
+                  placeholder="비밀번호*"
+                />
+              </div>
+              {
+                passwordErrorMessage ?
+                  <p id="errormessage">{passwordErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+              <div id="signup_line">
+                <i className="fas fa-check-circle" id="icon"></i>
+                <input
+                  type="password"
+                  value={confirmPassword}
+                  onBlur={validConfirmPassword}
+                  onChange={onConfirmPasswordHandle}
+                  placeholder="비밀번호 확인*"
+                />
+              </div>
+              {
+                confirmPasswordErrorMessage ?
+                  <p id="errormessage">{confirmPasswordErrorMessage}</p>
+                  :
+                  <></>
+              }
+
+              <div id="signup_line">
+                <i className="fas fa-envelope" id="icon"></i>
+                <input type="email" value={email} onChange={onEmailHandle} placeholder="이메일" />
+              </div>
+
+              <div id="signup_line">
+                <i className="fas fa-phone" id="icon"></i>
+                <input type="text" value={phoneNum} onChange={onPhoneNumHandle} placeholder="전화번호" />
+              </div>
+
+              <button className="signup_btn" type="submit">회원가입</button>
+            </form>
+
           </div>
-          {
-            nameErrorMessage ? 
-            <p id="errormessage">{nameErrorMessage}</p>
-            :
-            <></>
-          }
-
-
-          <div id="signup_line">
-            <i className="fab fa-android" id="icon"></i>
-            <input
-              type="text"
-              value={nickname}
-              onBlur={validNickname}
-              onChange={onNicknameHandle}
-              placeholder="닉네임*"
-            />
-          </div>
-          {
-            nicknameErrorMessage ? 
-            <p id="errormessage">{nicknameErrorMessage}</p>
-            :
-            <></>
-          }
-
-          <div id="signup_line">
-            <i className="fas fa-lock" id="icon"></i>
-            <input
-              type="password"
-              value={password}
-              onBlur={validPassword}
-              onChange={onPasswordHandle}
-              placeholder="비밀번호*"
-            />
-          </div>
-          {
-            passwordErrorMessage ? 
-            <p id="errormessage">{passwordErrorMessage}</p>
-            :
-            <></>
-          }
-
-          <div id="signup_line">
-            <i className="fas fa-check-circle" id="icon"></i>
-            <input
-              type="password"
-              value={confirmPassword}
-              onBlur={validConfirmPassword}
-              onChange={onConfirmPasswordHandle}
-              placeholder="비밀번호 확인*"
-            />
-          </div>
-          {
-            confirmPasswordErrorMessage ? 
-            <p id="errormessage">{confirmPasswordErrorMessage}</p>
-            :
-            <></>
-          }
-          
-          <div id="signup_line">
-            <i className="fas fa-envelope" id="icon"></i>
-            <input type="email" value={email} onChange={onEmailHandle} placeholder="이메일"/>
-          </div>
-
-          <div id="signup_line">
-            <i className="fas fa-phone" id="icon"></i>
-            <input type="text" value={phoneNum} onChange={onPhoneNumHandle} placeholder="전화번호"/>
-          </div>
-
-          <button className="signup_btn" type="submit">회원가입</button>
-        </form>
-
-      </div>
-    </div>
+        </div>
+      }
+    </>
   )
 };
 

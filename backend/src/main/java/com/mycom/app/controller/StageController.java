@@ -23,22 +23,28 @@ public class StageController {
     public ResponseEntity<StageDto> stageInfo(@RequestParam String userId, @RequestParam String gameCode) {
         int game = Integer.parseInt(gameCode);
 
-        try{
+        try {
             StageDto stageDto = stageService.getStageInfoByUserIdAndGameCode(userId, game);
-            return new ResponseEntity<>(stageDto, HttpStatus.OK);
-        }catch (Exception e){
+            if (stageDto == null) {
+                stageService.insertStageInfo(userId, gameCode);
+                stageDto = stageService.getStageInfoByUserIdAndGameCode(userId, game);
+                return new ResponseEntity<>(stageDto, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(stageDto, HttpStatus.OK);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping()
-    public ResponseEntity updateStageInfo(@RequestBody StageDto stageDto){
-        try{
+    public ResponseEntity updateStageInfo(@RequestBody StageDto stageDto) {
+        try {
             int result = stageService.updateStageInfo(stageDto);
-            if(result == SUCCESS) return new ResponseEntity(true, HttpStatus.OK);
+            if (result == SUCCESS) return new ResponseEntity(true, HttpStatus.OK);
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }

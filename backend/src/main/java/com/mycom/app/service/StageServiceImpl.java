@@ -23,7 +23,8 @@ public class StageServiceImpl implements StageService {
     @Transactional
     public StageDto getStageInfoByUserIdAndGameCode(String userId, int gameCode) {
         Stage stage = stageRepository.findByUserIdAndGameCode(userId, gameCode);
-        return new StageDto(stage.getStageId(),stage.getUserId(), stage.getGameCode()+"",stage.getCurStage()+"");
+        if (stage == null) return null;
+        return new StageDto(stage.getStageId(), stage.getUserId(), stage.getGameCode() + "", stage.getCurStage() + "");
     }
 
     @Override
@@ -38,7 +39,24 @@ public class StageServiceImpl implements StageService {
             stageRepository.save(stage);
             return SUCCESS;
 
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
+            return FAIL;
+        }
+    }
+
+    @Override
+    @Transactional
+    public int insertStageInfo(String userId, String gameCode) {
+        try {
+            Stage stage = new Stage();
+            stage.setUserId(userId);
+            stage.setGameCode(Integer.parseInt(gameCode));
+            stage.setCurStage(1);
+            stageRepository.save(stage);
+            return SUCCESS;
+
+        } catch (Exception e) {
             e.printStackTrace();
             return FAIL;
         }

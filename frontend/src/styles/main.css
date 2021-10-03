@@ -71,7 +71,7 @@
   height: 80%;
 }
 
-.test {
+.big-blue-circle {
   position: absolute;
   width: 470px;
   height: 470px;
@@ -81,37 +81,38 @@
   background: #6B76FF;
 }
 
-.test2{
+.man-computer {
   position: absolute;
   left: 6%;
   top: 41.5%;
-
 }
 
-.test3 {
+.man-computer img {
   width: 550px;
   object-fit: cover;
 }
 
-.test4 {
+.blue-triangle {
   width: 0px;
   height: 0px;
   border-bottom: calc( 100px * 1.732 ) solid #84D7EC;
   border-left: 100px solid transparent;
   border-right: 100px solid transparent;
   left: 670px;
-  /* top: auto; */
-  top: 30%;
+  /* top: 30%; */
+  top: 180px;
   position: absolute;
   transform: rotate(39.54deg);
 }
 
-.test5 {
+.small-blue-circle {
   position: absolute;
   width: 130px;
   height: 130px;
-  left: 50%;
-  bottom: 9%;
+  /* left: 50%;
+  bottom: 9%; */
+  left: 770px;
+  bottom: 65px;
   border-radius: 50%;
   background: #6B76FF;
 }
@@ -166,6 +167,154 @@
 }
 
 
+/* 반응형 */
+.main-res {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-res .main-card {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-res .main-card .title {
+  /* height: 10%; */
+}
+
+.main-res .main-card .title>h1 {
+  font-weight: 900;
+  font-size: 8vw;
+}
+
+.main-res .main-card .desc {
+  margin-top: 20px;
+}
+
+.main-res .main-card .desc .slogan {
+  font-weight: 700;
+  font-size: 4.1vw;
+}
+
+.main-res .main-card .desc .slogan .highlight {
+  color: #6B76FF;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.main-res .main-card .desc .add {
+  margin-top: 20px;
+  font-size: 3.3vw;
+}
+
+.main-res .main-card .btn {
+  width: 60%;
+  margin-top: 10px;
+}
+
+.main-res .main-card .btn .startBtn {
+  width: 80%;
+  font-size: 3.2vw;
+  font-weight: 700;
+  padding: 6px 0;
+  background-color: white;
+  border-color: #6B76FF;
+  border-width: 5px;
+  border-radius: 30px;
+  color: #6B76FF;
+  /* color: #FFB000; */
+  text-align: center;
+}
+
+.main-res .main-card .btn .startBtn:hover {
+  background-color: #6B76FF;
+  color: white;
+}
+
+.big-blue-circle-res {
+  position: absolute;
+  bottom: 20%;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  border-width: 19px;
+  left: -7%;
+  background-color: #84D7EC;
+}
+
+.big-blue-circle-res1 {
+  position: absolute;
+  bottom: 63%;
+  width: 27vw;
+  height: 27vw;
+  border-radius: 50%;
+  border-width: 19px;
+  left: 2%;
+  background-color: #6b76ff;
+}
+
+.big-blue-circle-res2 {
+  position: absolute;
+  bottom: 16%;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  border-width: 19px;
+  left: 63%;
+  background-color: #6b76ff;
+}
+
+.man-computer-res {
+  position: absolute;
+  bottom: 0%;
+}
+
+.man-computer-res img {
+  width: 50vw;
+}
+
+.blue-triangle-res {
+  width: 0px;
+  height: 0px;
+  border-bottom: calc( 5vw * 1.732 ) solid #FFB000;
+  border-left: 5vw solid transparent;
+  border-right: 5vw solid transparent;
+  left: 88%;
+  top: 67%;
+  position: absolute;
+  transform: rotate(6deg);
+}
+
+.blue-triangle-res2 {
+  width: 0px;
+  height: 0px;
+  border-bottom: calc( 10vw * 1.732 ) solid #84D7EC;
+  border-left: 10vw solid transparent;
+  border-right: 10vw solid transparent;
+  left: 69%;
+  top: 33%;
+  position: absolute;
+  transform: rotate(308deg);
+}
+
+.small-blue-circle-res {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  /* left: 50%;
+  bottom: 9%; */
+  left: 770px;
+  bottom: 65px;
+  border-radius: 50%;
+  background: #6B76FF;
+}
 
 
 /* 학습페이지 */

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
-import Container from 'react-bootstrap/Container'
+// import Container from 'react-bootstrap/Container'
 import '../../styles/gameDesc.css';
+import { useMediaQuery } from 'react-responsive'
 
 
 function GameDetailPage(props) {
@@ -19,9 +20,13 @@ function GameDetailPage(props) {
   }
 
 
+  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
+
+
   return(
     <div>
-      <div className="game-header">
+      <div className={isDesktopOrLaptop ? "game-header" : "game-header-res"}>
         { type === "ds" ?
           <h1 className="game-title">{ds[gameId-1].title}</h1>
           :
@@ -29,13 +34,13 @@ function GameDetailPage(props) {
         }
       </div>
       
-      <Container>
-        <div className="game-play">
+        <div className={isDesktopOrLaptop ? "game-play" : "game-play-res"}>
           게임 들어갈 위치
         </div>
-      </Container>
+      {/* <Container>
+      </Container> */}
 
-      <div>
+      <div className={isDesktopOrLaptop ? "show-game-menu" : "hide-game-menu"}>
         <div className={`menu ${showGames ? "" : "closed"}`}>
           <div className="stack button">
             <Link to={{
@@ -129,7 +134,7 @@ function GameDetailPage(props) {
        </div>
       </div>
 
-      <div className="go-to-study">
+      <div className={isDesktopOrLaptop ? "go-to-study" : "go-to-study-res"}>
        { type === "ds" ?
           <Link to={`/study/${type}/${ds[gameId-1].id}`} className="game-atag">
               <button className="after-study">관련 학습 하러가기</button>
@@ -139,6 +144,10 @@ function GameDetailPage(props) {
               <button className="after-study">관련 학습 하러가기</button>
           </Link>
         }
+      </div>
+
+      <div>
+
       </div>
     </div>
   )

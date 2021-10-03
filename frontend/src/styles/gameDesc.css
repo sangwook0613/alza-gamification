@@ -8,8 +8,10 @@
 
 .game-play {
   border-radius: 5%;
-  width: 960px;
-  height: 540px;
+  /* width: 960px;
+  height: 540px; */
+  width: 62vw;
+  height: 34.875vw;
   background-color: black;
   margin-left: auto;
   margin-right: auto;
@@ -196,8 +198,35 @@
   border-bottom: 1px solid #6762cf;
 }
 
-.go-to-study .after-study:hover {
-  background-color: white;
-  border-color: #6762cf;
+/* 반응형 */
+.game-play-res {
+  border-radius: 5%;
+  width: 86vw;
+  height: 48.375vw;
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.go-to-study-res {
+  margin-top: 20px;
+}
+
+.go-to-study-res .after-study {
+  background-color:white;
+  border-radius: 5%;
+  font-size: 3vw;
+  font-weight: 700;
   color: #6762cf;
+  margin-left: 4%;
+  border: none;
+  border-bottom: 1px solid #6762cf;
+}
+
+.show-game-menu {
+  display: block;
+}
+
+.hide-game-menu {
+  display: none;
 }

@@ -1,7 +1,14 @@
 // import { createStore } from 'redux'
 import { requestAll, requestData } from '../axios'
+import { persistReducer } from 'redux-persist';
+import storageSession from 'redux-persist/lib/storage/session';
 
-const initialState = {}
+
+
+const initialState = {
+  username: ''
+}
+
 const SIGNUP_USER = 'SIGNUP_USER'
 const LOGIN_USER = 'LOGIN_USER'
 const CHECK_ID = 'CHECK_ID'
@@ -103,7 +110,7 @@ const reducer = (state = initialState, action) => {
     case SIGNUP_USER:
       return { ...state, success: action.payload }
     case LOGIN_USER:
-      return { ...state}
+      return { ...state, username: action.payload.data.userId}
     case CHECK_ID:
       return { ...state, success: action.payload }
     case USER_INFO:
@@ -114,15 +121,24 @@ const reducer = (state = initialState, action) => {
       return { ...state, success: action.payload }
     case DELETE_USER:
       return { ...state, success: action.payload }
+    case "LOGOUT":
+      return { ...state, username: ''}
     default:
       return state
   }
 }
 
+const persistConfig = {
+  key: 'root',
+  storage: storageSession,
+}
+
+const persistedReducer = persistReducer(persistConfig, reducer);
 
 
 // const store = createStore(reducer)
 
 // store.subscribe()
 
-export default reducer
+// export default reducer
+export default persistedReducer

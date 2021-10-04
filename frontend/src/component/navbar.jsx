@@ -1,11 +1,25 @@
-import {NavLink} from 'react-router-dom'
+import React from 'react';
+import { NavLink, useHistory } from 'react-router-dom'
 import { Navbar, NavDropdown, Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import '../styles/main.css';
-import logo from '../assets/logo3.png'
+// import logo from '../assets/logo3.png'
 
-function Navi(){
-  const username = sessionStorage.getItem('userId')
-  // const username = ''
+function Navi(props){
+
+  const router = useHistory();
+  const username = props.state.username
+
+  const logout = () => {
+    sessionStorage.clear();
+    props.dispatch({type: "LOGOUT"});
+    router.push("/");
+  }
+
+  const handleClickLogout = () => {
+    logout()
+  }
+
   return (
     <Navbar expand="lg">
     <Container>
@@ -35,7 +49,7 @@ function Navi(){
       </div>
       <div className="auth-navbar">
         {username ?
-            <div className="text-middle nav-text">로그아웃</div>
+            <div className="text-middle nav-text cursor" onClick={handleClickLogout}>로그아웃</div>
           :
           <>
             <div className="content text-middle"><NavLink to='/login' className="nav-text">로그인</NavLink></div>
@@ -49,4 +63,10 @@ function Navi(){
   )
 }
 
-export default Navi;
+function statetoprops(state) {
+  return {
+    state: state
+  }
+}
+
+export default connect (statetoprops)(Navi);

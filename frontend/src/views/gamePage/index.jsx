@@ -65,7 +65,7 @@ function GamePage(props) {
           </div>
       )
       array_res.push(
-          <div className="responsive card">
+          <div className="responsive card" key={ds[i].id}>
             <div className="image">
               <img src={ds[i].img} alt=""></img>
             </div>
@@ -139,7 +139,7 @@ function GamePage(props) {
           </div>
       )
       array2_res.push(
-          <div className="responsive card">
+          <div className="responsive card" key={algo[i].id}>
             <div className="image">
               <img src={algo[i].img} alt=""></img>
             </div>

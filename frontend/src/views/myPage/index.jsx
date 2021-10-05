@@ -59,7 +59,7 @@ const MyPage = (props) => {
           'userTel': data.userTel,
         })
     })
-  }, [userId])
+  }, [userId, accessToken, dispatch, refreshToken])
 
   let array = []
   let i = 0

@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom'
 import { Navbar, NavDropdown, Container } from 'react-bootstrap';
 import '../styles/main.css';
-import logo from '../assets/logo3.png'
+// import logo from '../assets/logo3.png'
 
 function Navi(){
   const username = sessionStorage.getItem('userId')

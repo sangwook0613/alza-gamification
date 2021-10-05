@@ -9,7 +9,11 @@ const USER_INFO = 'USER_INFO'
 const UPDATE_USER_INFO = 'UPDATE_USER_INFO'
 const UPDATE_PASSWORD = 'UPDATE_PASSWORD'
 const DELETE_USER = 'DELETE_USER'
+const USER_GAMESTAGE = 'USER_GAMESTAGE'
+const UPDATE_GAMESTAGE = 'UPDATE_GAMESTAGE'
 
+
+// 회원가입 기능 API
 export const signupUser = (input) => {
   const response = requestData("post", '/user', input)
   console.log('호출!!!', response)
@@ -19,6 +23,8 @@ export const signupUser = (input) => {
   }
 }
 
+
+// 로그인 기능 API
 export const loginUser = (input) => {
   const response = requestAll("post", '/login', input)
   console.log('호출!!!', response)
@@ -37,6 +43,8 @@ export const checkUserId = (id, input) => {
   }
 }
 
+
+// 마이페이지 관련 API
 export const getUserInfo = (id, input) => {
   const headers = {
     'access-token': input.accessToken,
@@ -97,6 +105,40 @@ export const updatePassword = (input) => {
 }
 
 
+// 게임 연결 API
+export const getUserStage = (id, gameId, input) => {
+  const headers = {
+    'access-token': input.accessToken,
+    'refresh-token': input.refreshToken
+  }
+  console.log('headers', input)
+  const response = requestAll("get", `/api/stage?userId=${id}&gameCode=${gameId}`, input, headers)
+  return {
+    type: USER_GAMESTAGE,
+    payload: response,
+  }
+}
+
+
+export const updateUserStage = (input) => {
+  const headers = {
+    'access-token': input.accessToken,
+    'refresh-token': input.refreshToken
+  }
+  const body = {
+    stageId: input.stageId,
+    userId: input.userId,
+    gameCode: input.gameCode,
+    curStage: input.curStage + 1,
+  }
+  const response = requestData("put", `/api/stage`, body, headers)
+  return {
+    type: UPDATE_GAMESTAGE,
+    payload: response,
+  }
+}
+
+
 // 좀 더 직관적으로 이해하기 위해 우선 createReducer를 사용하지 않는다.
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -113,6 +155,10 @@ const reducer = (state = initialState, action) => {
     case UPDATE_PASSWORD:
       return { ...state, success: action.payload }
     case DELETE_USER:
+      return { ...state, success: action.payload }
+    case USER_GAMESTAGE:
+      return { ...state}
+    case UPDATE_GAMESTAGE:
       return { ...state, success: action.payload }
     default:
       return state

@@ -44,11 +44,7 @@ function GamePage(props) {
                 <p className="information">{ds[i].content}</p>
                 <div className="control"> 
                   <Link to={{
-                    pathname: `ds/${ds[i].id}`,
-                    state: {
-                      ds: ds,
-                      algo: algo
-                    }
+                    pathname: `ds/${ds[i].id}`
                   }}>
                     <button className="custom">
                       <i className="fas fa-play"></i>
@@ -79,11 +75,7 @@ function GamePage(props) {
                 </div>
                 <div className="detail-btn">
                   <Link to={{
-                    pathname: `ds/${ds[i].id}`,
-                    state: {
-                      ds: ds,
-                      algo: algo
-                    }
+                    pathname: `ds/${ds[i].id}`
                   }} className="link">
                     <button className="custom">
                       <i className="fas fa-play fa-xs"></i>
@@ -118,11 +110,7 @@ function GamePage(props) {
                 <p className="information">{algo[i].content}</p>
                 <div className="control">
                   <Link to={{
-                    pathname: `algo/${algo[i].id}`,
-                    state: {
-                      ds: ds,
-                      algo: algo
-                    }
+                    pathname: `algo/${algo[i].id}`
                   }}>
                     <button className="custom">
                       <i className="fas fa-play"></i>
@@ -153,11 +141,7 @@ function GamePage(props) {
                 </div>
                 <div className="detail-btn">
                   <Link to={{
-                    pathname: `algo/${algo[i].id}`,
-                    state: {
-                      ds: ds,
-                      algo: algo
-                    }
+                    pathname: `algo/${algo[i].id}`
                   }} className="link">
                     <button className="custom">
                       <i className="fas fa-play fa-xs"></i>

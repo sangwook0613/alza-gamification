@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class StageServiceImpl implements StageService {
@@ -25,6 +26,13 @@ public class StageServiceImpl implements StageService {
         Stage stage = stageRepository.findByUserIdAndGameCode(userId, gameCode);
         if (stage == null) return null;
         return new StageDto(stage.getStageId(), stage.getUserId(), stage.getGameCode() + "", stage.getCurStage() + "");
+    }
+
+    @Override
+    public List<Stage> getClearStageListByUserId(String userId) {
+        List<Stage> stageList = stageRepository.findByUserIdAndCurStage(userId, 4);
+        if(stageList == null) return null;
+        return stageList;
     }
 
     @Override

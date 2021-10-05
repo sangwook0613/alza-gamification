@@ -395,3 +395,9 @@
 .menu-trigger.active span:nth-of-type(3) {
   transform: translateY(-20px) rotate(45deg);
 } */
+
+#maintitle {
+  font-family: 'Gamja Flower', cursive;
+  /* font-family: 'Gugi', cursive; */
+  /* font-family: 'Jua', sans-serif; */
+}

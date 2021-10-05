@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { Navbar, NavDropdown, Container, Nav } from 'react-bootstrap';
 import '../styles/main.css';
-import logo from '../assets/logo3.png'
+import logo4 from '../assets/logo/logo4.png'
 
 import { useMediaQuery } from 'react-responsive'
 
@@ -28,7 +28,12 @@ function Navi() {
           <Container>
             <div className="logo">
               {/* <NavLink to="/" className="nav-text"><img src={logo} alt="" className="logo-test" /></NavLink> */}
-              <NavLink to="/" className="nav-text">알짜배기</NavLink>
+              <NavLink to="/">
+                <img src={logo4} alt="" style={{ width: "100px" }} />
+                {/* <img src={logo7} alt="" style={{width:"100px", borderRadius:"20px"}}/> */}
+                {/* <img src={logo5} alt="" style={{width:"100px", borderRadius:"20px"}}/> */}
+                {/* <img src={logo10} alt="" style={{width:"150px", borderRadius:"20px"}}/> */}
+              </NavLink>
             </div>
 
             <div className="content-navbar">
@@ -69,7 +74,9 @@ function Navi() {
           <Container>
             <div className="logo">
               {/* <NavLink to="/" className="nav-text"><img src={logo} alt="" className="logo-test" /></NavLink> */}
-              <NavLink to="/" className="nav-text">알짜배기</NavLink>
+              <NavLink to="/">
+                <img src={logo4} alt="" style={{ width: "70px" }} />
+              </NavLink>
             </div>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" id="hamberger" />
             <Navbar.Collapse id="responsive-navbar-nav">

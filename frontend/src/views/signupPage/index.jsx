@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router';
 import { signupUser, checkUserId } from '../../lib/store/store';
 import { onIdValidation, onNameValidation, onNicknameValidation, onPasswordValidation, onConfirmPasswordValidation } from './validation';
-import logo from '../../assets/user.png'
+// import logo from '../../assets/user.png'
 import '../../styles/signup.css';
 import { useMediaQuery } from 'react-responsive'
+
+import logo11 from '../../assets/logo/logo11.png'
 
 import swal from 'sweetalert';
 const SignupPage = (props) => {
@@ -116,7 +118,7 @@ const SignupPage = (props) => {
     <>
       {isDesktopOrLaptop &&
         <div style={{ display: "flex", alignItems: "center", flexDirection: 'column' }}>
-          <img src={logo} alt="" style={{ width: "10%", margin: "30px" }} />
+          <img src={logo11} alt="" style={{ width: "5%", margin: "30px" }} />
           <div style={{ width: "25%" }}>
             <form
               className="signupForm"
@@ -235,7 +237,7 @@ const SignupPage = (props) => {
       }
       {isTabletOrMobile &&
         <div style={{ display: "flex", alignItems: "center", flexDirection: 'column', height:"90%", justifyContent:"center"}}>
-          <img src={logo} alt="" style={{ width: "20%", margin: "30px" }} />
+          <img src={logo11} alt="" style={{ width: "20%", margin: "10px" }} />
           <div style={{ width: "60%" }}>
             <form
               className="signupForm"

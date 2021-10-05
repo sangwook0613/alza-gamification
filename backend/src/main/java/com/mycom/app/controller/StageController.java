@@ -1,11 +1,14 @@
 package com.mycom.app.controller;
 
 import com.mycom.app.domain.dto.StageDto;
+import com.mycom.app.domain.entity.Stage;
 import com.mycom.app.service.StageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -35,6 +38,18 @@ public class StageController {
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/stageList")
+    public ResponseEntity<List<Stage>> clearStageList(@RequestParam String userId){
+        try {
+            List<Stage> stageList = stageService.getClearStageListByUserId(userId);
+            if (stageList == null) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(stageList, HttpStatus.OK);
+        } catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

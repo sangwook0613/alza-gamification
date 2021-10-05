@@ -31,8 +31,10 @@ public class StageServiceImpl implements StageService {
     @Transactional
     public int updateStageInfo(StageDto stageDto) {
         try {
+            StageDto sd = getStageInfoByUserIdAndGameCode(stageDto.getUserId(), Integer.parseInt(stageDto.getGameCode()));
             Stage stage = new Stage();
-            stage.setStageId(stageDto.getStageId());
+            stage.setStageId(sd.getStageId());
+            System.out.println(stage.getStageId());
             stage.setUserId(stageDto.getUserId());
             stage.setGameCode(Integer.parseInt(stageDto.getGameCode()));
             stage.setCurStage(Integer.parseInt(stageDto.getCurStage()));

@@ -37,6 +37,12 @@
   font-size: 4px;
 }
 
+#acceptmessage {
+  margin-bottom: 0px;
+  color: rgb(1, 177, 1);
+  font-size: 4px;
+}
+
 .signup_btn {
   font-size:20px; 
   padding:5px 8%;

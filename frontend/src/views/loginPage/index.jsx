@@ -7,6 +7,7 @@ import '../../styles/login.css';
 import stack_thumnail from '../../assets/study/stack_thumnail.png'
 import logo from '../../assets/user.png'
 import { useMediaQuery } from 'react-responsive'
+import swal from 'sweetalert';
 
 const LoginPage = (props) => {
   const [id, setId] = useState('')
@@ -41,14 +42,13 @@ const LoginPage = (props) => {
     dispatch(loginUser(body))
       .then((res) => {
         console.log(res)
-        alert(`반갑습니다! ${res.payload.data.userName}님`)
         setToken(res.payload.headers)
         setUserId(res.payload.data.userId)
         props.history.push('/')
       })
       .catch((err) => {
         console.log(err)
-        alert('아이디 혹은 비밀번호가 잘못되었습니다.')
+        swal("로그인에 실패했습니다.", "아이디 혹은 비밀번호를 확인해주세요!", "error");
       })
   }
 

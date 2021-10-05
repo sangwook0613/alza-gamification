@@ -6,6 +6,8 @@ import { onIdValidation, onNameValidation, onNicknameValidation, onPasswordValid
 import logo from '../../assets/user.png'
 import '../../styles/signup.css';
 import { useMediaQuery } from 'react-responsive'
+
+import swal from 'sweetalert';
 const SignupPage = (props) => {
   const [id, setId] = useState('')
   const [name, setName] = useState('')
@@ -15,13 +17,13 @@ const SignupPage = (props) => {
   const [email, setEmail] = useState('')
   const [phoneNum, setPhoneNum] = useState('')
   const [idErrorMessage, setIdErrorMessage] = useState('')
+  const [idAcceptMessage, setIdAcceptMessage] = useState('')
   const [nameErrorMessage, setNameErrorMessage] = useState('')
   const [nicknameErrorMessage, setNicknameErrorMessage] = useState('')
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('')
   const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] = useState('')
   // const [validationCheck, setValidationCheck] = useState(0)
   const dispatch = useDispatch()
-
 
   const onIdHandle = (e) => {
     setId(e.currentTarget.value)
@@ -54,9 +56,10 @@ const SignupPage = (props) => {
       dispatch(checkUserId(e.target.value, {})).then((res) => {
         console.log(res)
         if (res.payload) {
-          alert('사용가능한 아이디입니다!')
           setIdErrorMessage("")
+          setIdAcceptMessage("사용가능한 아이디입니다.")
         } else {
+          setIdAcceptMessage("")
           setIdErrorMessage("이미 존재하는 아이디입니다.")
         }
       })
@@ -99,11 +102,11 @@ const SignupPage = (props) => {
       }
       dispatch(signupUser(body)).then((res) => {
         console.log(res)
-        alert('정상적으로 가입되었습니다!')
+        swal("정상적으로 가입되었습니다!", "로그인을 진행해 주세요", "success");
         props.history.push('/login')
       })
     } else {
-      alert('올바르게 작성해주세요!')
+      swal("회원가입에 실패했습니다", "올바르게 작성해주세요", "error");
     }
   }
   const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
@@ -132,6 +135,12 @@ const SignupPage = (props) => {
                   placeholder="아이디*"
                 />
               </div>
+              {
+                idAcceptMessage ?
+                  <p id="acceptmessage">{idAcceptMessage}</p>
+                  :
+                  <></>
+              }
               {
                 idErrorMessage ?
                   <p id="errormessage">{idErrorMessage}</p>

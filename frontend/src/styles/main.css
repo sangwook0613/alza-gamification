@@ -405,3 +405,52 @@
   /* font-family: 'Gugi', cursive; */
   /* font-family: 'Jua', sans-serif; */
 }
+
+
+/* 404페이지 */
+.error-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.error-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-img {
+  width: 70%;
+  height: 70%;
+}
+
+.error-container h2 {
+  font-weight: 400;
+  font-size: 1.8vw;
+  font-family: 'Gamja Flower', cursive;
+}
+
+/* 개별요소 */
+/* .error-title h1 {
+  font-weight: 900;
+  font-size: 22vw;
+  color: #555894;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.error-egg {
+  width: 30%;
+  height: 30%;
+}
+
+.error-alzza {
+  position: absolute;
+  right: 38%;
+  height: 40%;
+  bottom: 15%;
+} */

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import { deleteUser } from '../../lib/store/store';
+import { connect } from 'react-redux';
 
 const UserDeleteModal = (props) => {
   const userId = sessionStorage.getItem('userId')
@@ -8,6 +10,7 @@ const UserDeleteModal = (props) => {
   const refreshToken = sessionStorage.getItem('refreshToken')
   const dispatch = useDispatch()
   console.log(props)
+  const router = useHistory();
 
   const onSubmit = () => {
     const body = {
@@ -22,7 +25,7 @@ const UserDeleteModal = (props) => {
         sessionStorage.removeItem('refreshToken')
         sessionStorage.removeItem('userId')
         props.onClose()
-        // props.history.push('/game')
+        router.push("/");
       })
       .catch((err) => {
         console.log(err)
@@ -45,4 +48,13 @@ const UserDeleteModal = (props) => {
   )
 };
 
-export default UserDeleteModal;
+// export default UserDeleteModal;
+
+
+function statetoprops(state) {
+  return {
+    state: state
+  }
+}
+
+export default connect (statetoprops)(UserDeleteModal);

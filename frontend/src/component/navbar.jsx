@@ -8,7 +8,7 @@ import '../styles/main.css';
 function Navi(props){
 
   const router = useHistory();
-  const username = props.state.username
+  const userId = props.state.userid
 
   const logout = () => {
     sessionStorage.clear();
@@ -41,14 +41,14 @@ function Navi(props){
             <NavLink to="/study/algo" className="nav-text">알고리즘</NavLink>
           </div>
         </NavDropdown>
-        { username ? 
-        <div className="text-middle content"><NavLink to={'/mypage/' + username} className="nav-text">마이페이지</NavLink></div>
+        { userId ? 
+        <div className="text-middle content"><NavLink to={'/mypage/' + userId} className="nav-text">마이페이지</NavLink></div>
         :
         <></>
         }
       </div>
       <div className="auth-navbar">
-        {username ?
+        { userId ?
             <div className="text-middle nav-text cursor" onClick={handleClickLogout}>로그아웃</div>
           :
           <>

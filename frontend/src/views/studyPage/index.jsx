@@ -63,7 +63,7 @@ function StructStudyList() {
   }
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems:"center"}}>
-      <h1 style={{marginBottom:"40px"}}>자료구조</h1>
+      <h1 style={{marginBottom:"90px", marginTop:"80px", fontWeight:"900"}}>자료구조</h1>
       <Container>
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {lis}
@@ -110,7 +110,7 @@ function AlgoStudyList() {
   }
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems:"center" }}>
-      <h1 style={{marginBottom:"40px"}}>알고리즘</h1>
+      <h1 style={{marginBottom:"90px", marginTop:"80px", fontWeight:"900"}}>알고리즘</h1>
       <Container>
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {lis}

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { withRouter } from 'react-router';
+// import { withRouter } from 'react-router';
 import { loginUser } from '../../lib/store/store';
+import { connect } from 'react-redux';
 import '../../styles/login.css';
 
 import stack_thumnail from '../../assets/study/stack_thumnail.png'
@@ -117,4 +118,11 @@ const LoginPage = (props) => {
   )
 };
 
-export default withRouter(LoginPage);
+function statetoprops(state) {
+  return {
+    state: state
+  }
+}
+
+// export default withRouter(LoginPage);
+export default connect(statetoprops)(LoginPage);

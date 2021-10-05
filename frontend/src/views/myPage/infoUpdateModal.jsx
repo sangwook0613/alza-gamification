@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUserInfo } from '../../lib/store/store';
 import { onNicknameValidation } from '../signupPage/validation';
+import { connect } from 'react-redux';
 
 const InfoUpdateModal = (props) => {
   const userId = sessionStorage.getItem('userId')
@@ -37,6 +38,7 @@ const InfoUpdateModal = (props) => {
   }
 
   const onSubmit = () => {
+    console.log(nickname, phoneNum, email, '도대체 뭐라고나오길래 undefined야?')
     console.log('Submit')
     const body = {
       accessToken,
@@ -47,12 +49,13 @@ const InfoUpdateModal = (props) => {
       userEmail: email,
     }
     if (checkValidation()) {
+      props.dispatch({type: 'UPDATE_MYPAGE', payload: body});
       dispatch(updateUserInfo(body))
         .then((res) => {
           console.log(res)
+          // console.log(res.data, 'axios로 받아오는 data는 없다')
           alert('수정되었습니다')
           props.onClose()
-          // props.history.push('/game')
         })
         .catch((err) => {
           console.log(err)
@@ -132,4 +135,12 @@ const InfoUpdateModal = (props) => {
   )
 };
 
-export default InfoUpdateModal;
+// export default InfoUpdateModal;
+
+function statetoprops(state) {
+  return {
+    state: state
+  }
+}
+
+export default connect (statetoprops)(InfoUpdateModal);

@@ -78,6 +78,10 @@
   flex-direction: column;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
 /* 메인페이지 */
 .main-container {
   display: flex;

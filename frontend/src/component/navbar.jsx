@@ -1,15 +1,35 @@
-import { NavLink } from 'react-router-dom'
+import React from 'react';
 import { Navbar, NavDropdown, Container, Nav } from 'react-bootstrap';
-import '../styles/main.css';
-import logo from '../assets/logo3.png'
-
+import { NavLink, useHistory } from 'react-router-dom'
+import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive'
+import '../styles/main.css';
+// import logo from '../assets/logo3.png'
 
-function Navi() {
+function Navi(props){
+
+  const router = useHistory();
+  const userId = props.state.userid
+
+  const logout = () => {
+    sessionStorage.clear();
+    props.dispatch({type: "LOGOUT"});
+    router.push("/");
+  }
+
+  const handleClickLogout = () => {
+    logout()
+  }
+
+  const handleClickLogoutRes = () => {
+    logout()
+    document.getElementById("hamberger").click()
+  }
+
   const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
-  const username = sessionStorage.getItem('userId')
-  // const username = ''
+  // const username = sessionStorage.getItem('userId')
+
   const clickNav = (e) => {
     document.getElementById("hamberger").click()
     // console.log(document.getElementById("hamberger").className)
@@ -44,15 +64,15 @@ function Navi() {
                   <NavLink to="/study/algo" className="nav-text">알고리즘</NavLink>
                 </div>
               </NavDropdown>
-              {username ?
-                <div className="text-middle content"><NavLink to={'/mypage/' + username} className="nav-text">마이페이지</NavLink></div>
+              {userId ?
+                <div className="text-middle content"><NavLink to={'/mypage/' + userId} className="nav-text">마이페이지</NavLink></div>
                 :
                 <></>
               }
             </div>
             <div className="auth-navbar">
-              {username ?
-                <div className="text-middle nav-text">로그아웃</div>
+              {userId ?
+                <div className="text-middle nav-text cursor" onClick={handleClickLogout}>로그아웃</div>
                 :
                 <>
                   <div className="content text-middle"><NavLink to='/login' className="nav-text">로그인</NavLink></div>
@@ -102,13 +122,13 @@ function Navi() {
                   </div>
                   <NavDropdown.Divider />
                 </NavDropdown>
-                {username ?
-                  <NavLink to={'/mypage/' + username} className="nav-text" onClick={clickNav} style={{ paddingTop: "8px", paddingBottom: "8px" }}>마이페이지</NavLink>
+                {userId ?
+                  <NavLink to={'/mypage/' + userId} className="nav-text" onClick={clickNav} style={{ paddingTop: "8px", paddingBottom: "8px" }}>마이페이지</NavLink>
                   :
                   <NavLink to='/login' className="nav-text" onClick={clickNav} style={{ paddingTop: "8px", paddingBottom: "8px" }}>로그인</NavLink>
                 }
-                {username ?
-                  <NavLink onClick={clickNav} style={{ paddingTop: "8px", paddingBottom: "8px" }}>로그아웃</NavLink>
+                {userId ?
+                  <div onClick={handleClickLogoutRes} style={{ paddingTop: "8px", paddingBottom: "8px" }}>로그아웃</div>
                   :
                   <NavLink to='/signup' className="nav-text" onClick={clickNav} style={{ paddingTop: "8px", paddingBottom: "8px" }}>회원가입</NavLink>
                 }
@@ -117,9 +137,14 @@ function Navi() {
           </Container>
         </Navbar>
       }
-
     </>
   )
 }
 
-export default Navi;
+function statetoprops(state) {
+  return {
+    state: state
+  }
+}
+
+export default connect (statetoprops)(Navi);

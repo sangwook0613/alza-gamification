@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUserInfo } from '../../lib/store/store';
+import { connect } from 'react-redux';
 import Modal from '../../component/modal';
 import profile_img from '../../assets/user.png';
 import './myPage.css';
@@ -13,13 +14,22 @@ const MyPage = (props) => {
   const [userInfoUpdateModalOn, setUserInfoUpdateModalOn] = useState(false)
   const [userDeleteModalOn, setUserDeleteModalOn] = useState(false)
   const [userPasswordUpdateModalOn, setUserPasswordUpdateModalOn] = useState(false)
-  const [userInfo, setUserInfo] = useState({
+  let [userInfo, setUserInfo] = useState({
     'userId': '',
     'userName': '',
     'userNickName': '',
     'userEmail': '',
-    'userPhone': '',
+    'userTel': '',
   })
+
+  const userInfoUpdate = {
+    'userId': props.state.userid,
+    'userName': props.state.name,
+    'userNickName': props.state.nickname,
+    'userEmail': props.state.email,
+    'userTel': props.state.tel,
+  }
+
   const dispatch = useDispatch()
   const matchInfo = {
     'userId': '아이디',
@@ -47,6 +57,7 @@ const MyPage = (props) => {
       accessToken,
       refreshToken,
     }
+    // console.log(body, '토큰 확인')
     dispatch(getUserInfo(userId, body))
       .then((res) => {
         console.log('getUserInfo', res)
@@ -59,21 +70,37 @@ const MyPage = (props) => {
           'userTel': data.userTel,
         })
     })
-  }, [userId])
+  }, 
+  [userId])
 
   let array = []
   let i = 0
-  
-  for (const key in userInfo) {
-    i++
-    const value = userInfo[key] ? userInfo[key] : '-'
-    array.push(
-      <li key={i}>
-        <div className="user-info-key">{matchInfo[key]}</div>
-        <input className="user-info-input" type="text" placeholder={value}/>
-      </li>
-    )
+  // console.log(props.state.isUpdate, '업데이트 여부확인')
+  if (props.state.isUpdate) {
+    for (const key in userInfoUpdate) {
+      i++
+      const value = userInfoUpdate[key] ? userInfoUpdate[key] : '-'
+      array.push(
+        <li key={i}>
+          <div className="user-info-key">{matchInfo[key]}</div>
+          <input className="user-info-input" type="text" placeholder={value} disabled/>
+        </li>
+      )
+    }
+  } else {
+    for (const key in userInfo) {
+      i++
+      const value = userInfo[key] ? userInfo[key] : '-'
+      // console.log(value, 'value 값 확인', userInfo[key], key)
+      array.push(
+        <li key={i}>
+          <div className="user-info-key">{matchInfo[key]}</div>
+          <input className="user-info-input" type="text" placeholder={value} disabled/>
+        </li>
+      )
+    }
   }
+  
   
   return (
     <>
@@ -129,4 +156,12 @@ const MyPage = (props) => {
   )
 };
 
-export default MyPage;
+// export default MyPage;
+
+function statetoprops(state) {
+  return {
+    state: state
+  }
+}
+
+export default connect (statetoprops)(MyPage);

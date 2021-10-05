@@ -1,7 +1,19 @@
 // import { createStore } from 'redux'
 import { requestAll, requestData } from '../axios'
+import { persistReducer } from 'redux-persist';
+import storageSession from 'redux-persist/lib/storage/session';
 
-const initialState = {}
+
+
+const initialState = {
+  userid: '',
+  name: '',
+  nickname: '',
+  email: '',
+  tel: '',
+  isUpdate: false,
+}
+
 const SIGNUP_USER = 'SIGNUP_USER'
 const LOGIN_USER = 'LOGIN_USER'
 const CHECK_ID = 'CHECK_ID'
@@ -73,6 +85,7 @@ export const updateUserInfo = (input) => {
     userTel: input.userTel,
     userEmail: input.userEmail,
   }
+  console.log('axios들어왔다. 그런데 값이..', body.userNickName)
   const response = requestData("put", `/api/user`, body, headers)
   return {
     type: UPDATE_USER_INFO,
@@ -103,7 +116,9 @@ const reducer = (state = initialState, action) => {
     case SIGNUP_USER:
       return { ...state, success: action.payload }
     case LOGIN_USER:
-      return { ...state}
+      return { ...state, 
+        userid: action.payload.data.userId,
+        name: action.payload.data.userName }
     case CHECK_ID:
       return { ...state, success: action.payload }
     case USER_INFO:
@@ -113,16 +128,32 @@ const reducer = (state = initialState, action) => {
     case UPDATE_PASSWORD:
       return { ...state, success: action.payload }
     case DELETE_USER:
-      return { ...state, success: action.payload }
+      return { state: initialState, success: action.payload }
+    case "LOGOUT":
+      return { state: initialState }
+    case "UPDATE_MYPAGE":
+      return { ...state, 
+        nickname: action.payload.userNickName, 
+        email: action.payload.userEmail, 
+        tel: action.payload.userTel,
+        isUpdate: true  
+      }
     default:
       return state
   }
 }
 
+const persistConfig = {
+  key: 'root',
+  storage: storageSession,
+}
+
+const persistedReducer = persistReducer(persistConfig, reducer);
 
 
 // const store = createStore(reducer)
 
 // store.subscribe()
 
-export default reducer
+// export default reducer
+export default persistedReducer

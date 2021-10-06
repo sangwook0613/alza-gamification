@@ -1,19 +1,51 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getUserInfo } from '../../lib/store/store';
+import { getUserInfo, getUserGameInfo } from '../../lib/store/store';
 import { connect } from 'react-redux';
 import Modal from '../../component/modal';
-import profile_img from '../../assets/user.png';
 import './myPage.css';
+
+import stack_badge from '../../assets/badges/stack_badge.png'
+import queue_badge from '../../assets/badges/queue_badge.png'
+import tree_badge from '../../assets/badges/tree_badge.png'
+import graph_badge from '../../assets/badges/graph_badge.png'
+import binarysearch_badge from '../../assets/badges/binarysearch_badge.png'
+import sort_badge from '../../assets/badges/sort_badge.png'
+import gray_egg from '../../assets/badges/gray_egg.png'
+
+import { useMediaQuery } from 'react-responsive'
 
 const MyPage = (props) => {
   // console.log(props)
+  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
+
+  const noClearBadges = [
+    { id: 1, img: gray_egg },
+    { id: 2, img: gray_egg },
+    { id: 3, img: gray_egg },
+    { id: 4, img: gray_egg },
+    { id: 5, img: gray_egg },
+    { id: 6, img: gray_egg }
+  ]
+
+  const badges = [
+    { id: 1, img: stack_badge },
+    { id: 2, img: queue_badge },
+    { id: 3, img: graph_badge },
+    { id: 4, img: tree_badge },
+    { id: 5, img: sort_badge },
+    { id: 6, img: binarysearch_badge }
+  ]
+
+
   const userId = props.match.params.username
   const accessToken = sessionStorage.getItem('accessToken')
   const refreshToken = sessionStorage.getItem('refreshToken')
   const [userInfoUpdateModalOn, setUserInfoUpdateModalOn] = useState(false)
   const [userDeleteModalOn, setUserDeleteModalOn] = useState(false)
   const [userPasswordUpdateModalOn, setUserPasswordUpdateModalOn] = useState(false)
+  const [userGameInfo, setUserGameInfo] = useState([])
   let [userInfo, setUserInfo] = useState({
     'userId': '',
     'userName': '',
@@ -52,24 +84,47 @@ const MyPage = (props) => {
     setUserPasswordUpdateModalOn(!userPasswordUpdateModalOn)
   }
 
-  useEffect(() => {
+  const initialUserInfo = () => {
+    console.log('initialUserInfo')
     const body = {
       accessToken,
       refreshToken,
     }
-    // console.log(body, '토큰 확인')
-    dispatch(getUserInfo(userId, body))
-      .then((res) => {
-        console.log('getUserInfo', res)
-        const data = res.payload.data
-        setUserInfo({
-          'userId': data.userId,
-          'userName': data.userName,
-          'userNickName': data.userNickName,
-          'userEmail': data.userEmail,
-          'userTel': data.userTel,
+    if (body.accessToken) {
+      dispatch(getUserInfo(userId, body))
+        .then((res) => {
+          console.log('getUserInfo', res)
+          const data = res.payload.data
+          setUserInfo({
+            'userId': data.userId,
+            'userName': data.userName,
+            'userNickName': data.userNickName,
+            'userEmail': data.userEmail,
+            'userTel': data.userTel,
+          })
         })
-    })
+    }
+  }
+
+  const initialUserGameInfo = () => {
+    console.log('initialUserGameInfo')
+    const body = {
+      accessToken,
+      refreshToken,
+    }
+    if (body.accessToken) {
+      dispatch(getUserGameInfo(userId, body))
+        .then((res) => {
+          const data = res.payload
+          console.log('getUserGameInfo', data)
+          setUserGameInfo(data)
+        })
+    }
+  }
+
+  useEffect(() => {
+    initialUserInfo()
+    initialUserGameInfo()
   }, [userId, accessToken, dispatch, refreshToken])
 
   let array = []
@@ -82,7 +137,7 @@ const MyPage = (props) => {
       array.push(
         <li key={i}>
           <div className="user-info-key">{matchInfo[key]}</div>
-          <input className="user-info-input" type="text" placeholder={value} disabled/>
+          <input className="user-info-input" type="text" placeholder={value} disabled />
         </li>
       )
     }
@@ -94,70 +149,130 @@ const MyPage = (props) => {
       array.push(
         <li key={i}>
           <div className="user-info-key">{matchInfo[key]}</div>
-          <input className="user-info-input" type="text" placeholder={value} disabled/>
+          <input className="user-info-input" type="text" placeholder={value} disabled />
         </li>
       )
     }
   }
-  
-  
+
+  for (let j = 0; j < userGameInfo.length; j++) {
+    console.log(noClearBadges[badges[userGameInfo[j].gameCode - 1].id - 1])
+    console.log(badges[userGameInfo[j].gameCode - 1])
+    noClearBadges[badges[userGameInfo[j].gameCode - 1].id - 1] = badges[userGameInfo[j].gameCode - 1]
+  }
+
+  let badge_array = []
+  for (let k = 0; k < noClearBadges.length; k++) {
+    badge_array.push(
+      <div key={noClearBadges[k].id} style={{ width: "16.66%", display: "flex" }}>
+        <img src={noClearBadges[k].img} alt="" style={{ width: "90%" }} />
+      </div>
+    )
+  }
+
   return (
     <>
-      <h1>{userId} 마이페이지</h1>
-      <div >
-        <button onClick={handleUserInfoUpdateModal}>회원정보 수정</button>
-        <button onClick={handleUserPasswordUpdateModal}>비밀번호 변경</button>
-        <button onClick={handleUserDeleteModal}>회원 탈퇴</button>
-      </div>
-      <section className="mypage-main">
-        <section className="user-board">
-          <div className="profile">
-            <div className="profile-img-circle">
-              <img className="profile-img" src={profile_img} alt="profile" />
+      {isDesktopOrLaptop &&
+        <>
+          <h1 style={{ marginBottom: "20px", marginTop: "80px", fontWeight: "900" }}> 마이페이지</h1>
+          <section className="mypage-main">
+            <div style={{ display: "flex", justifyContent: "end", width: "97%", marginBottom: "5px" }}>
+              <button className="mypagebutton" onClick={handleUserInfoUpdateModal}>회원정보 수정</button>
+              <button className="mypagebutton" onClick={handleUserPasswordUpdateModal}>비밀번호 변경</button>
+              <button className="mypagebutton" onClick={handleUserDeleteModal}>회원 탈퇴</button>
             </div>
-          </div>
-          <div className="board-info">
-            <div>
-              달성률
-            </div>
-            <div>
+            <section className="user-board">
+              <div className="board-info">
+                <div style={{ height: "10%", textAlign: "left", paddingLeft: "10px", paddingTop: "10px", fontWeight: "bold", fontSize: "1.1rem" }}>
+                  당신의 업적
+                </div>
+                <div style={{ padding: "0", display: "flex", flexDirection: "row", width: "100%", height: "90%", alignItems: "center", justifyContent: "center" }}>
+                  {badge_array}
+                </div>
+                {/* <div>
               Badge
-            </div>
+            </div> */}
+              </div>
+            </section>
+            <ul className="user-info">
+              {array}
+            </ul>
+          </section>
+          <div>
+            {userInfoUpdateModalOn &&
+              <Modal
+                modalType="InfoUpdateModal"
+                onClose={handleUserInfoUpdateModal}
+                {...userInfo}
+              />
+            }
+            {userDeleteModalOn &&
+              <Modal
+                modalType="UserDeleteModal"
+                onClose={handleUserDeleteModal}
+                {...userInfo}
+              />
+            }
+            {userPasswordUpdateModalOn &&
+              <Modal
+                modalType="PasswordUpdateModal"
+                onClose={handleUserPasswordUpdateModal}
+              />
+            }
           </div>
-        </section>
-        <ul className="user-info">
-          {array}
-        </ul>
-      </section>
-      <div>
-        {userInfoUpdateModalOn && !props.state.isUpdate &&
-          <Modal
-            modalType="InfoUpdateModal"
-            onClose={handleUserInfoUpdateModal}
-            {...userInfo}
-          />
-        }
-        {userInfoUpdateModalOn && props.state.isUpdate &&
-          <Modal
-            modalType="InfoUpdateModal"
-            onClose={handleUserInfoUpdateModal}
-            {...userInfoUpdate}
-          />
-        }
-        {userDeleteModalOn &&
-          <Modal
-            modalType="UserDeleteModal"
-            onClose={handleUserDeleteModal}
-            {...userInfo}
-          />
-        }
-        {userPasswordUpdateModalOn &&
-          <Modal
-            modalType="PasswordUpdateModal"
-            onClose={handleUserPasswordUpdateModal}
-          />
-        }
-      </div>
+        </>
+      }
+      {isTabletOrMobile &&
+        <>
+          <h1 style={{ marginBottom: "20px", marginTop: "80px", fontWeight: "900" }}> 마이페이지</h1>
+          <section className="mypage-main-mobile">
+            <div style={{ display: "flex", justifyContent: "center", width: "97%", marginBottom: "5px" }}>
+              <button className="mypagebutton-mobile" onClick={handleUserInfoUpdateModal}>회원정보 수정</button>
+              <button className="mypagebutton-mobile" onClick={handleUserPasswordUpdateModal}>비밀번호 변경</button>
+              <button className="mypagebutton-mobile" onClick={handleUserDeleteModal}>회원 탈퇴</button>
+            </div>
+            <section className="user-board-mobile">
+              <div className="board-info">
+                <div style={{ height: "10%", textAlign: "left", paddingLeft: "10px", paddingTop: "10px", fontWeight: "bold", fontSize: "1.1rem" }}>
+                  당신의 업적
+                </div>
+                <div style={{ padding: "0", display: "flex", flexDirection: "row", width: "100%", height: "90%", alignItems: "center", justifyContent: "center" }}>
+                  {badge_array}
+                </div>
+                {/* <div>
+              Badge
+            </div> */}
+              </div>
+            </section>
+            <ul className="user-info-mobile">
+              {array}
+            </ul>
+          </section>
+          <div>
+            {userInfoUpdateModalOn &&
+              <Modal
+                modalType="InfoUpdateModal"
+                onClose={handleUserInfoUpdateModal}
+                {...userInfo}
+              />
+            }
+            {userDeleteModalOn &&
+              <Modal
+                modalType="UserDeleteModal"
+                onClose={handleUserDeleteModal}
+                {...userInfo}
+              />
+            }
+            {userPasswordUpdateModalOn &&
+              <Modal
+                modalType="PasswordUpdateModal"
+                onClose={handleUserPasswordUpdateModal}
+              />
+            }
+          </div>
+        </>
+
+      }
     </>
   )
 };
@@ -170,4 +285,4 @@ function statetoprops(state) {
   }
 }
 
-export default connect (statetoprops)(MyPage);
+export default connect(statetoprops)(MyPage);

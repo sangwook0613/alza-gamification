@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { onPasswordValidation, onConfirmPasswordValidation } from '../signupPage/validation';
 import { updatePassword } from '../../lib/store/store';
-
+import swal from 'sweetalert';
 const PasswordUpdateModal = (props) => {
   const userId = sessionStorage.getItem('userId')
   const accessToken = sessionStorage.getItem('accessToken')
@@ -47,23 +47,23 @@ const PasswordUpdateModal = (props) => {
       dispatch(updatePassword(body))
         .then((res) => {
           console.log(res)
-          alert('비밀번호가 변경되었습니다.')
+          swal("비밀번호 변경 완료", "변경된 비밀번호를 사용하세요", "success");
           props.onClose()
         })
         .catch((err) => {
           console.log(err)
-          alert('에러발생')
+          swal("비밀번호 변경 실패", "다시 시도해주세요!", "error");
         })
     } else {
-      alert('올바르게 작성해주세요!')
+      swal("비밀번호 변경 실패", "올바르게 작성해 주세요!", "error");
     }
   }
 
 
   return (
     <>
-      <span style={{ fontWeight: 'bold' }}>비밀번호 변경</span>
-      <hr />
+      <div style={{ fontWeight: 'bold', width:'100%', textAlign:"center",fontSize:"25px" }}>비밀번호 변경</div>
+      <hr style={{color:"#6B76FF", marginBottom:"25px"}}/>
       <ul className="info-update-form">
         <li>
           <div className="info-update-title">새 비밀번호</div>

@@ -23,7 +23,7 @@ const UPDATE_PASSWORD = 'UPDATE_PASSWORD'
 const DELETE_USER = 'DELETE_USER'
 const USER_GAMESTAGE = 'USER_GAMESTAGE'
 const UPDATE_GAMESTAGE = 'UPDATE_GAMESTAGE'
-
+const USER_GAME_INFO = 'USER_GAME_INFO'
 
 // 회원가입 기능 API
 export const signupUser = (input) => {
@@ -117,6 +117,18 @@ export const updatePassword = (input) => {
   }
 }
 
+export const getUserGameInfo = (id, input) => {
+  const headers = {
+    'access-token': input.accessToken,
+    'refresh-token': input.refreshToken
+  }
+  console.log('headers', input)
+  const response = requestData("get", `/api/stage/stageList?userId=${id}`, input, headers)
+  return {
+    type: USER_GAME_INFO,
+    payload: response,
+  }
+}
 
 // 게임 연결 API
 export const getUserStage = (id, gameId, input) => {
@@ -158,30 +170,35 @@ const reducer = (state = initialState, action) => {
     case SIGNUP_USER:
       return { ...state, success: action.payload }
     case LOGIN_USER:
-      return { ...state, 
+      return {
+        ...state,
         userid: action.payload.data.userId,
-        name: action.payload.data.userName }
+        name: action.payload.data.userName
+      }
     case CHECK_ID:
       return { ...state, success: action.payload }
     case USER_INFO:
-      return { ...state}
+      return { ...state }
     case UPDATE_USER_INFO:
       return { ...state, success: action.payload }
     case UPDATE_PASSWORD:
       return { ...state, success: action.payload }
     case DELETE_USER:
       return { state: initialState, success: action.payload }
+    case USER_GAME_INFO:
+      return { ...state, success: action.payload }
     case "LOGOUT":
       return { state: initialState }
     case "UPDATE_MYPAGE":
-      return { ...state, 
-        nickname: action.payload.userNickName, 
-        email: action.payload.userEmail, 
+      return {
+        ...state,
+        nickname: action.payload.userNickName,
+        email: action.payload.userEmail,
         tel: action.payload.userTel,
-        isUpdate: true  
+        isUpdate: true
       }
     case USER_GAMESTAGE:
-      return { ...state}
+      return { ...state }
     case UPDATE_GAMESTAGE:
       return { ...state, success: action.payload }
     default:

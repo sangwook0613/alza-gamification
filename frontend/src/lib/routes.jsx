@@ -45,8 +45,9 @@ const routes = (
       <PublicRoute exact restricted={true} path="/signup" component={SignupPage}/>
       <PublicRoute exact restricted={false} path="/study/:type" component={StudyPage}/>
       <PublicRoute exact restricted={false} path="/study/:type/:id" component={StudyDetailPage}/>
+      <PublicRoute exact restricted={false} path="/game/:category" component={GamePage}/>
       <PrivateRoute exact path="/mypage/:username" component={MyPage}/>
-      <PrivateRoute exact path="/game/:category" component={GamePage}/>
+      {/* <PrivateRoute exact path="/game/:category" component={GamePage}/> */}
       <PrivateRoute exact path="/game/:category/:gameId" component={GameDetailPage}/>
       <Route component={NotFound}/>
     </Switch>

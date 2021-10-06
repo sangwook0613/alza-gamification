@@ -26,8 +26,8 @@
 
 .menu {
   position: fixed;
-  top: 110px;
-  left: 114px;
+  top: 85px;
+  left: 95px;
   transition: transform 1.125s cubic-bezier(0.39, 1.52, 0.46, 0.92);
   transform: scale3d(1, 1, 1);
   transform-origin: top left;
@@ -70,7 +70,7 @@
 }
 
 .stack {
-  background-color: #fa39d0;
+  background-color: #1ba5cd;
   top: 90%;
   transition-duration: 0.525s;
 }
@@ -81,7 +81,7 @@
 }
 
 .queue {
-  background-color: #ee5656;
+  background-color: #1ab254;
   top: 180%;
   transition-duration: 0.675s;
 }
@@ -92,18 +92,18 @@
 }
 
 .graph {
-  background-color: #fa7d39;
+  background-color: #fec72e;
   top: 270%;
   transition-duration: 0.825s;
 }
 
 .closed .graph {
-  transform: translate3d(-4%, -270%, 0) rotate(-180deg);
+  transform: translate3d(-10%, -270%, 0) rotate(-180deg);
   pointer-events: none;
 }
 
 .tree {
-  background-color: #fec72e;
+  background-color: #fa7d39;
   top: 360%;
   transition-duration: 0.975s;
 }
@@ -114,7 +114,7 @@
 }
 
 .sort {
-  background-color: #1ab254;
+  background-color: #ee5656;
   top: 450%;
   transition-duration: 1.125s;
 }
@@ -125,7 +125,7 @@
 }
 
 .mid {
-  background-color: #1ba5cd;
+  background-color: #fa39d0;
   top: 540%;
   transition-duration: 0.975s;
 }
@@ -190,35 +190,14 @@
   display: block;
   width: 100%;
   background-color: white;
-  font-size: 1.7vw;
+  border-radius: 5%;
+  font-size: 25px;
   font-weight: 700;
   color: #6762cf;
   margin-left: 4%;
   border: none;
   border-bottom: 1px solid #6762cf;
 }
-
-.game-help {
-  position: fixed;
-  bottom: 15%;
-  right: 2.5%;
-  width: 13.7vw;
-  background-color: lavender;
-}
-
-.game-help-title {
-  font-weight: 700;
-  margin-top: 10%;
-}
-
-.game-help-desc {
-  margin: 10%;
-}
-
-.game-help-desc p {
-  font-size: 0.9vw;
-}
-
 
 /* 반응형 */
 .game-play-res {
@@ -251,32 +230,4 @@
 
 .hide-game-menu {
   display: none;
-}
-
-.game-help-res {
-  background-color: lavender;
-  display: flex;
-  justify-content: center;
-  margin-top: 4%;
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.game-help-card-res {
-  width: 79%;
-}
-
-.game-help-title-res {
-  margin-top: 5%;
-  font-weight: 700;
-  font-size: 3.5vw;
-}
-
-.game-help-desc-res {
-  margin: 2%;
-}
-
-.game-help-desc-res p {
-  font-size: 2.7vw;
 }

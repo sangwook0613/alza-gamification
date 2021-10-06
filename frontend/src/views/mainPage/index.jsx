@@ -3,7 +3,7 @@ import test2 from '../../assets/test2.png'
 import '../../styles/main.css';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
-
+import logo4 from '../../assets/logo/logo4.png'
 
 const MainPage = (props) => {
 
@@ -21,8 +21,8 @@ const MainPage = (props) => {
             <div className="small-blue-circle"></div>
 
             <div className="test-desc">
-              <p id="maintitle" style={{ marginBottom: "30px", fontSize: "100px", fontWeight: "bold" }}>알짜배기</p>
-              {/* <img src={logo1} alt="" style={{ width: "30%", marginBottom: "20px" }} /> */}
+              {/* <p id="maintitle" style={{ marginBottom: "30px", fontSize: "100px", fontWeight: "bold" }}>알짜배기</p> */}
+              <img src={logo4} alt="" style={{ width: "45%", marginBottom: "20px" }} />
               {/* <img src={logo5} alt="" style={{width:"60%", marginBottom:"20px"}}/> */}
               {/* <img src={logo7} alt="" style={{width:"60%", marginBottom:"20px"}}/> */}
               <h5 className="desc">게임으로 배우는 <mark className="highlight">알</mark>고리즘과 <mark className="highlight">짜</mark>료구조</h5>

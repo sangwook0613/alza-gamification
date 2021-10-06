@@ -8,26 +8,10 @@ import binarysearch2 from '../../../assets/study/binarysearch2.jpg'
 import binarysearch3 from '../../../assets/study/binarysearch3.PNG'
 import binarysearch4 from '../../../assets/study/binarysearch4.PNG'
 
-import graphgameimage from '../../../assets/game/graph.png'
 import midgameimage from '../../../assets/game/mid.png'
-import queuegameimage from '../../../assets/game/queue.png'
-import sortgameimage from '../../../assets/game/sort.png'
-import stackgameimage from '../../../assets/game/stack.png'
-import treegameimage from '../../../assets/game/tree.png'
 
 import '../../../styles/studyCard.css';
 
-const ds = [
-  {id: 1, title: '스택: 별과자 완전 범죄', sort: 'Stack', img: stackgameimage, content: '형의 별과자가 너무 탐났던 사피. 음성인식 로봇 알짜의 도움을 받아 몰래 훔쳐먹자! 훔쳐먹고 나서 후환이 두려워진 사피. 알짜의 도움을 받아 과자를 원상복구 하자!'},
-  {id: 2, title: '큐: 산타를 도와라', sort: 'Queue', img: queuegameimage, content: '크리스마스를 앞두고 한창 준비 중인 산타마을. 컨베이어 벨트가 끊어져 선물들이 다 섞여버렸다! 산타를 도와 문제를 해결하고 큐 개념을 같이 학습해봐요!!' },
-  {id: 3, title: '그래프: 보물 찾기 대모험', sort: 'Graph', img: graphgameimage, content: '다리를 연결하고 보물을 찾아가는 Graph Game! 보물을 찾아가며 그래프의 주요 특징들을 차근차근 배워가요~~' },
-  {id: 4, title: '트리: 공통 조상 찾기', sort: 'Tree', img: treegameimage, content: '그들 사이에 있는 복잡한 관계는? 우리 함께 공통 조상을 찾아봐요! 제한시간이 많지 않으니 서둘러야 할거에요~ 그럼 이제 시작해볼까요?' },
-]
-
-const algo = [
-  {id: 1, title: '정렬: 동물의 왕국', sort: 'Sort', img: sortgameimage, content: '동물들이 길을 잃고 섞여버렸다! 우리 올바른 순서대로 동물들을 정렬시켜볼까요? 아쉽게도 간장이는 다음 시즌에서 만나보실 수 있습니다. 양념이와 치킨이 정렬!' },
-  {id: 2, title: '이분탐색: 도둑을 잡아라!', sort: 'Mid', img: midgameimage, content:  '도둑을 잡았더니 이분탐색 개념이 머리속에 쏙쏙!? 목격자 이분탐씨와 함께 김싸피 순경을 도와 도둑을 잡아봐요!!' },
-]
 
 function BinarySearch(props) {
   const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
@@ -42,7 +26,7 @@ function BinarySearch(props) {
     <div id="study">
       {isDesktopOrLaptop &&
         <div>
-          <h1>Binary Search</h1>
+          <h1 style={{marginTop:"80px", marginBottom:"50px"}}>Binary Search</h1>
           <Container style={{ width: "50%", textAlign: "left" }}>
             <div id="fixed">
               <OverlayTrigger
@@ -51,11 +35,7 @@ function BinarySearch(props) {
               >
                 <button id="gamebutton" style={{width:"100px", height:"100px", padding:"0", border:"solid 2px #6562CF", borderRadius:"50px"}}>
                   <Link to={{
-                    pathname: "/game/algo/2",
-                    state: {
-                      ds: ds,
-                      algo: algo,
-                    }
+                    pathname: "/game/algo/2"
                   }} >
                     <img src={midgameimage} id="gameimage" style={{margin:"0", width:"100%", height:"100%", border:"solid 2px #6562CF", borderRadius:"50px"}} alt=""/>
                   </Link>
@@ -141,7 +121,7 @@ function BinarySearch(props) {
       }
       {isTabletOrMobile &&
         <div>
-          <h1>Binary Search</h1>
+          <h1 style={{marginTop:"30px", marginBottom:"30px"}}>Binary Search</h1>
           <Container style={{ width: "90%", textAlign: "left" }}>
             <div style={{ width: "100%", textAlign: "center" }}>
               <img src={binarysearch2} alt="" style={{ width: "80%" }} />

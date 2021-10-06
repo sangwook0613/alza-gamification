@@ -199,11 +199,18 @@ const MyPage = (props) => {
             </ul>
           </section>
           <div>
-            {userInfoUpdateModalOn &&
+           {userInfoUpdateModalOn && !props.state.isUpdate &&
               <Modal
                 modalType="InfoUpdateModal"
                 onClose={handleUserInfoUpdateModal}
                 {...userInfo}
+              />
+            }
+            {userInfoUpdateModalOn && props.state.isUpdate &&
+              <Modal
+                modalType="InfoUpdateModal"
+                onClose={handleUserInfoUpdateModal}
+                {...userInfoUpdate}
               />
             }
             {userDeleteModalOn &&

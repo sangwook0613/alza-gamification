@@ -15,7 +15,7 @@ function GraphTraversal() {
     <div id="study">
       {isDesktopOrLaptop &&
         <div>
-          <h1>Graph Traversals</h1>
+          <h1 style={{marginTop:"80px", marginBottom:"50px"}}>Graph Traversals</h1>
           <Container style={{ width: "50%", textAlign: "left" }}>
             <img src={graphtraversal_thumnail} alt="" />
             <Link to={"/study/ds/3"}>그래프란?</Link>
@@ -95,7 +95,7 @@ function GraphTraversal() {
       }
       {isTabletOrMobile &&
         <div>
-          <h1>Graph Traversals</h1>
+          <h1 style={{marginTop:"30px", marginBottom:"30px"}}>Graph Traversals</h1>
           <Container style={{ width: "90%", textAlign: "left" }}>
             <img src={graphtraversal_thumnail} alt="" />
             <Link to={"/study/ds/3"}>그래프란?</Link>

@@ -257,6 +257,12 @@ const SignupPage = (props) => {
                 />
               </div>
               {
+                idAcceptMessage ?
+                  <p id="acceptmessage">{idAcceptMessage}</p>
+                  :
+                  <></>
+              }
+              {
                 idErrorMessage ?
                   <p id="errormessage">{idErrorMessage}</p>
                   :

@@ -46,7 +46,7 @@ const MainPage = (props) => {
             <div className="main-res">
               <div className="main-card">
                 <div className="title">
-                  <p id="maintitle" style={{ fontSize: "50px", fontWeight: "bold" }}>알짜배기</p>
+                  <img src={logo4} alt="" style={{ width: "60%", marginBottom: "10px" }} />
                 </div>
                 <div className="desc">
                   <h5 className="slogan">게임으로 배우는 <mark className="highlight">알</mark>고리즘과 <mark className="highlight">짜</mark>료구조</h5>

@@ -5,10 +5,12 @@ import { loginUser } from '../../lib/store/store';
 import { connect } from 'react-redux';
 import '../../styles/login.css';
 
-import stack_thumnail from '../../assets/study/stack_thumnail.png'
-import logo from '../../assets/user.png'
 import { useMediaQuery } from 'react-responsive'
 import swal from 'sweetalert';
+
+import logo12 from '../../assets/logo/logo12.png'
+import logo11 from '../../assets/logo/logo11.png'
+
 
 const LoginPage = (props) => {
   const [id, setId] = useState('')
@@ -59,13 +61,31 @@ const LoginPage = (props) => {
     <>
       {isDesktopOrLaptop &&
         <div style={{ display: "flex", height: "90%" }}>
-          <div style={{ width: "50%" }}>
-            <img src={stack_thumnail} alt="" style={{ width: "100%", height: "100%" }} />
+          {/* <div style={{ width: "50%", justifyContent:"center", alignItems:"center", display:"flex" }}>
+            <img src={logo7} alt="" style={{ width: "100%"}} />
+          </div> */}
+          {/* <div style={{ width: "50%"}}>
+            <img src={logo9} alt="" style={{ width: "100%", height:"100%"}} />
+          </div> */}
+          {/* <div style={{ width: "50%", justifyContent:"center", alignItems:"center", display:"flex" }}>
+            <img src={logo8} alt="" style={{ width: "100%", height:"100%"}} />
           </div>
+          <div style={{ width: "50%", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> */}
+          {/* <div style={{ width: "50%", justifyContent:"center", alignItems:"center", display:"flex" }}>
+            <img src={logo1} alt="" style={{ width: "50%"}} />
+          </div> */}
+          {/* <div style={{ width: "50%", justifyContent:"center", alignItems:"center", display:"flex" }}>
+            <img src={logo4} alt="" style={{ width: "50%"}} />
+          </div> */}
+          <div style={{ width: "50%", justifyContent: "center", alignItems: "center", display: "flex" }}>
+            <img src={logo12} alt="" style={{ width: "70%" }} />
+          </div>
+
+
           <div style={{ width: "50%", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
-            <img src={logo} alt="" style={{ width: "10%", marginBottom: "50px" }} />
-
+            {/* <img src={logo} alt="" style={{ width: "10%", marginBottom: "50px" }} /> */}
+            <h1 style={{ marginBottom: "70px", fontWeight: "900" }}>로그인</h1>
             <form
               className="loginForm"
               onSubmit={onSubmit}
@@ -91,7 +111,9 @@ const LoginPage = (props) => {
       {isTabletOrMobile &&
         <div style={{ display: "flex", height: "90%" }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={logo} alt="" style={{ width: "30%", marginBottom: "50px" }} />
+            <div style={{ width: "50%", justifyContent: "center", alignItems: "center", display: "flex" }}>
+              <img src={logo11} alt="" style={{ width: "50%", marginBottom:"50px" }} />
+            </div>
             <form
               className="loginForm"
               onSubmit={onSubmit}

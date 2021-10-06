@@ -42,36 +42,18 @@ function StructStudyList() {
           <div style={{width:"87%", marginBottom:"3px"}}>
             <small style={{color:"gray"}} >{struct_contents[i].e_title}</small>
           </div>
-          {/* <div className="card-footer">
-            <small className="text-muted">{struct_contents[i].e_title}</small>
-          </div> */}
         </NavLink></div>
       </div>
-
-
-
-      // <Card key={struct_contents[i].id}><NavLink to={"/study/ds/"+struct_contents[i].id}>
-      //   <Card.Img variant="top" src={struct_contents[i].img} className="study-card-image"/>
-      //   <Card.Body>
-      //     <Card.Title>{struct_contents[i].title}</Card.Title>
-      //     <Card.Text>
-      //       {struct_contents[i].desc}
-      //     </Card.Text>
-      //   </Card.Body>  
-      // </NavLink></Card>
     )
   }
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems:"center"}}>
-      <h1 style={{marginBottom:"40px"}}>자료구조</h1>
+      <h1 style={{marginBottom:"50px", marginTop:"80px", fontWeight:"900"}}>자료구조</h1>
       <Container>
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {lis}
         </div>
       </Container>
-      {/* <CardGroup className="row row-cols-1 row-cols-md-4 g-4" style={{width: "60%"}}>
-        {lis}
-      </CardGroup> */}
     </div>
   )
 }
@@ -91,34 +73,21 @@ function AlgoStudyList() {
           <div style={{width:"87%", marginBottom:"3px"}}>
             <small style={{color:"gray"}} >{algo_contents[i].e_title}</small>
           </div>
-          {/* <div className="card-footer">
-            <small className="text-muted">{struct_contents[i].e_title}</small>
-          </div> */}
+
         </NavLink></div>
       </div>
 
-      // <Card key={algo_contents[i].id}><NavLink to={"/study/algo/"+algo_contents[i].id}>
-      //   <Card.Img variant="top" src={algo_contents[i].img} className="study-card-image"/>
-      //   <Card.Body>
-      //     <Card.Title>{algo_contents[i].title}</Card.Title>
-      //     <Card.Text>
-      //       {algo_contents[i].desc}
-      //     </Card.Text>
-      //   </Card.Body>
-      // </NavLink></Card>
+
     )
   }
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems:"center" }}>
-      <h1 style={{marginBottom:"40px"}}>알고리즘</h1>
+      <h1 style={{marginBottom:"50px", marginTop:"80px", fontWeight:"900"}}>알고리즘</h1>
       <Container>
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {lis}
         </div>
       </Container>
-      {/* <CardGroup className="row row-cols-1 row-cols-md-4 g-4" style={{width: "60%"}}>
-        {lis}
-      </CardGroup> */}
     </div>
   )
 }
@@ -138,58 +107,6 @@ function StudyPage() {
   return (
     <div>
       {view}
-
-      {/* <div class="row row-cols-1 row-cols-md-4 g-4" style={{width: "60%"}}>
-
-
-        <div class="col">
-          <div class="card">
-            <img src={stack_thumnail} class="card-img-top" className="study-card-image" alt="..."/>
-            <div class="card-body">
-              <h5 class="card-title text-start">스택</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col">
-          <div class="card">
-            <img src={queue_thumnail} class="card-img-top" className="study-card-image" alt="..."/>
-            <div class="card-body">
-              <h5 class="card-title text-start">큐</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src={graph_thumnail} class="card-img-top" className="study-card-image" alt="..."/>
-            <div class="card-body">
-              <h5 class="card-title text-start">그래프</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src={tree_thumnail} class="card-img-top" className="study-card-image" alt="..."/>
-            <div class="card-body">
-              <h5 class="card-title text-start">트리</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src={list_thumnail} class="card-img-top" className="study-card-image" alt="..."/>
-            <div class="card-body">
-              <h5 class="card-title text-start">리스트</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   )
 }

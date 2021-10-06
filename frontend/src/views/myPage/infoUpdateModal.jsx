@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { updateUserInfo } from '../../lib/store/store';
 import { onNicknameValidation } from '../signupPage/validation';
 import { connect } from 'react-redux';
-
+import swal from 'sweetalert';
 const InfoUpdateModal = (props) => {
   const userId = sessionStorage.getItem('userId')
   const accessToken = sessionStorage.getItem('accessToken')
@@ -54,22 +54,22 @@ const InfoUpdateModal = (props) => {
         .then((res) => {
           console.log(res)
           // console.log(res.data, 'axios로 받아오는 data는 없다')
-          alert('수정되었습니다')
+          swal("회원정보 수정 완료", "회원 정보 수정이 완료되었습니다.", "success");
           props.onClose()
         })
         .catch((err) => {
           console.log(err)
-          alert('에러발생')
+          swal("회원정보 변경 실패", "다시 시도해주세요!", "error");
         })
     } else {
-      alert('올바르게 작성해주세요!')
+      swal("회원정보 변경 실패", "올바르게 작성해 주세요!", "error");
     }
   }
 
   return (
     <>
-      <span style={{ fontWeight: 'bold' }}>회원정보 수정</span>
-      <hr />
+      <div style={{ fontWeight: 'bold', width:'100%', textAlign:"center",fontSize:"25px" }}>회원정보 수정</div>
+      <hr style={{color:"#6B76FF", marginBottom:"25px"}}/>
       <ul className="info-update-form">
         <li>
           <div className="info-update-title">아이디</div>

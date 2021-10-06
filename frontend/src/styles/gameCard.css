@@ -172,6 +172,12 @@
 	color: white;
 }
 
+.gamelist-container-res>h1 {
+	font-weight: 900;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
 
 
 

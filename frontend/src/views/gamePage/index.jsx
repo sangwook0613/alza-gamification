@@ -24,7 +24,7 @@ function GamePage(props) {
 
   const algo = [
     {id: 1, title: '정렬: 동물의 왕국', sort: 'Sort', img: sort, content: '동물들이 길을 잃고 섞여버렸다! 우리 올바른 순서대로 동물들을 정렬시켜볼까요? 아쉽게도 간장이는 다음 시즌에서 만나보실 수 있습니다. 양념이와 치킨이 정렬!' },
-    {id: 2, title: '이분탐색: 도둑을 잡아라!', sort: 'Mid', img: mid, content:  '도둑을 잡았더니 이분탐색 개념이 머리속에 쏙쏙!? 목격자 이분탐씨와 함께 김싸피 순경을 도와 도둑을 잡아봐요!!' },
+    {id: 2, title: '이분탐색: 도둑을 잡아라!', sort: 'Binary Search', img: mid, content:  '도둑을 잡았더니 이분탐색 개념이 머리속에 쏙쏙!? 목격자 이분탐씨와 함께 김싸피 순경을 도와 도둑을 잡아봐요!!' },
   ]
 
   let array = [];
@@ -44,11 +44,7 @@ function GamePage(props) {
                 <p className="information">{ds[i].content}</p>
                 <div className="control"> 
                   <Link to={{
-                    pathname: `ds/${ds[i].id}`,
-                    state: {
-                      ds: ds,
-                      algo: algo
-                    }
+                    pathname: `ds/${ds[i].id}`
                   }}>
                     <button className="custom">
                       <i className="fas fa-play"></i>
@@ -79,11 +75,7 @@ function GamePage(props) {
                 </div>
                 <div className="detail-btn">
                   <Link to={{
-                    pathname: `ds/${ds[i].id}`,
-                    state: {
-                      ds: ds,
-                      algo: algo
-                    }
+                    pathname: `ds/${ds[i].id}`
                   }} className="link">
                     <button className="custom">
                       <i className="fas fa-play fa-xs"></i>
@@ -97,7 +89,7 @@ function GamePage(props) {
       )
     }
     return (
-      <div className="gamelist-container">
+      <div className={isDesktopOrLaptop ? "gamelist-container": "gamelist-container-res"}>
         <h1>자료구조</h1>
         { isDesktopOrLaptop &&
         array
@@ -118,11 +110,7 @@ function GamePage(props) {
                 <p className="information">{algo[i].content}</p>
                 <div className="control">
                   <Link to={{
-                    pathname: `algo/${algo[i].id}`,
-                    state: {
-                      ds: ds,
-                      algo: algo
-                    }
+                    pathname: `algo/${algo[i].id}`
                   }}>
                     <button className="custom">
                       <i className="fas fa-play"></i>
@@ -153,11 +141,7 @@ function GamePage(props) {
                 </div>
                 <div className="detail-btn">
                   <Link to={{
-                    pathname: `algo/${algo[i].id}`,
-                    state: {
-                      ds: ds,
-                      algo: algo
-                    }
+                    pathname: `algo/${algo[i].id}`
                   }} className="link">
                     <button className="custom">
                       <i className="fas fa-play fa-xs"></i>
@@ -171,7 +155,7 @@ function GamePage(props) {
       )
     }
     return (
-      <div className="gamelist-container">
+      <div className={isDesktopOrLaptop ? "gamelist-container": "gamelist-container-res"}>
         <h1>알고리즘</h1>
         { isDesktopOrLaptop &&
         array2

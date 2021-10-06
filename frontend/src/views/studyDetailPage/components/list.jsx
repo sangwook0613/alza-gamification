@@ -14,7 +14,7 @@ function List() {
     <div id="study">
       {isDesktopOrLaptop &&
         <div>
-          <h1>List</h1>
+          <h1 style={{marginTop:"80px", marginBottom:"50px"}}>List</h1>
           <Container style={{ width: "50%", textAlign: "left" }}>
             <div style={{ width: "100%", textAlign: "center" }}>
               <img src={list_thumnail} alt="" style={{ width: "80%" }} />
@@ -76,7 +76,7 @@ function List() {
       }
       {isTabletOrMobile &&
         <div>
-          <h1>List</h1>
+          <h1 style={{marginTop:"30px", marginBottom:"30px"}}>List</h1>
           <Container style={{ width: "90%", textAlign: "left" }}>
             <div style={{ width: "100%", textAlign: "center" }}>
               <img src={list_thumnail} alt="" style={{ width: "80%" }} />

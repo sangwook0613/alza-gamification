@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import MainPage from '../views/mainPage/index'
 import LoginPage from '../views/loginPage/index'
 import SignupPage from '../views/signupPage/index'
@@ -9,12 +9,12 @@ import GameDetailPage from '../views/gameDetailPage/index'
 import Navi from '../component/navbar'
 import StudyPage from '../views/studyPage/index'
 import StudyDetailPage from '../views/studyDetailPage/index'
+import NotFound from '../component/notFound';
 
 import PublicRoute from './publicRoute';
 import PrivateRoute from './privateRoute';
 
 const routes = (
-  
   <>
 
     <Navi/>
@@ -45,12 +45,11 @@ const routes = (
       <PublicRoute exact restricted={true} path="/signup" component={SignupPage}/>
       <PublicRoute exact restricted={false} path="/study/:type" component={StudyPage}/>
       <PublicRoute exact restricted={false} path="/study/:type/:id" component={StudyDetailPage}/>
+      <PublicRoute exact restricted={false} path="/game/:category" component={GamePage}/>
       <PrivateRoute exact path="/mypage/:username" component={MyPage}/>
-      <PrivateRoute exact path="/game/:category" component={GamePage}/>
+      {/* <PrivateRoute exact path="/game/:category" component={GamePage}/> */}
       <PrivateRoute exact path="/game/:category/:gameId" component={GameDetailPage}/>
-      {/* 나중에 404페이지 */}
-      {/* <Route component={NotFound}/> */}
-
+      <Route component={NotFound}/>
     </Switch>
 
   </>

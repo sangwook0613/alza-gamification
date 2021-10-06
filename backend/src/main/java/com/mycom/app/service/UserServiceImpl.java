@@ -2,6 +2,7 @@ package com.mycom.app.service;
 
 import com.mycom.app.domain.dto.user.UserDto;
 import com.mycom.app.domain.entity.User;
+import com.mycom.app.repository.StageRepository;
 import com.mycom.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    StageRepository stageRepository;
 
     @Override
     @Transactional
@@ -100,6 +104,7 @@ public class UserServiceImpl implements UserService{
     @Transactional
     public int deleteUser(String userId) {
         try{
+            stageRepository.deleteByUserId(userId);
             userRepository.deleteByUserId(userId);
             return SUCCESS;
         }catch (Exception e){

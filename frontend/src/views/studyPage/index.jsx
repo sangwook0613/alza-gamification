@@ -94,7 +94,6 @@ function AlgoStudyList() {
 
 function StudyPage() {
   var params = useParams();
-  console.log(params)
   var type = params.type
   var view = null
   if (type === 'ds') {

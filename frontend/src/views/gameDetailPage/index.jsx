@@ -76,17 +76,13 @@ function GameDetailPage(props) {
     }
     dispatch(getUserStage(userId, gameKey, body))
       .then((res) => {
-        console.log('getUserStage', res)
         stageId.current = parseInt(res.payload.data.stageId)
         currentStage.current = parseInt(res.payload.data.curStage)
-        console.log(stageId, stageId.current)
-        console.log(currentStage, currentStage.current)
     })
   }, [accessToken, dispatch, gameKey, refreshToken, userId])
 
 
   const handleUpdateUserStage = (stageNum) => {
-    console.log('updateUserStage')
     const body = {
       accessToken,
       refreshToken,
@@ -108,24 +104,28 @@ function GameDetailPage(props) {
     codeUrl: `/unity/${gameName[gameKey]}/build.wasm`,
   });
 
-  
   unityContext.on("SetStage", () => {
-    console.log("Stage button setting", currentStage.current, gameObjectName[gameKey]);
-    unityContext.send(gameObjectName[gameKey], "SetStageFromReact", currentStage.current); 
+    const body = {
+      accessToken,
+      refreshToken,
+    }
+    dispatch(getUserStage(userId, gameKey, body))
+      .then((res) => {
+        stageId.current = parseInt(res.payload.data.stageId)
+        currentStage.current = parseInt(res.payload.data.curStage)
+        unityContext.send(gameObjectName[gameKey], "SetStageFromReact", currentStage.current); 
+    })
   });
 
   unityContext.on("Stage1Clear", () => {
-    console.log("Stage 1 Clear");
     handleUpdateUserStage(1)
   });
   
   unityContext.on("Stage2Clear", () => {
-    console.log("Stage 2 Clear");
     handleUpdateUserStage(2)
   });
   
   unityContext.on("Stage3Clear", () => {
-    console.log("Stage 3 Clear");
     handleUpdateUserStage(3)
   });
 

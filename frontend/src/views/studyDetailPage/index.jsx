@@ -29,7 +29,6 @@ const algo_contents = [
 
 function StudyDetailPage() {
   var params = useParams();
-  console.log(params)
   var id = Number(params.id);
   var view = null
   if (params.type === 'ds') {

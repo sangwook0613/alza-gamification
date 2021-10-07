@@ -28,7 +28,6 @@ const USER_GAME_INFO = 'USER_GAME_INFO'
 // 회원가입 기능 API
 export const signupUser = (input) => {
   const response = requestData("post", '/user', input)
-  console.log('호출!!!', response)
   return {
     type: SIGNUP_USER,
     payload: response,
@@ -39,7 +38,6 @@ export const signupUser = (input) => {
 // 로그인 기능 API
 export const loginUser = (input) => {
   const response = requestAll("post", '/login', input)
-  console.log('호출!!!', response)
   return {
     type: LOGIN_USER,
     payload: response,
@@ -48,7 +46,6 @@ export const loginUser = (input) => {
 
 export const checkUserId = (id, input) => {
   const response = requestData("get", `/user?userId=${id}`, input)
-  console.log('호출!!!', response)
   return {
     type: CHECK_ID,
     payload: response,
@@ -62,7 +59,6 @@ export const getUserInfo = (id, input) => {
     'access-token': input.accessToken,
     'refresh-token': input.refreshToken
   }
-  console.log('headers', input)
   const response = requestAll("get", `/api/user?userId=${id}`, input, headers)
   return {
     type: USER_INFO,
@@ -93,7 +89,6 @@ export const updateUserInfo = (input) => {
     userTel: input.userTel,
     userEmail: input.userEmail,
   }
-  console.log('axios들어왔다. 그런데 값이..', body.userNickName)
   const response = requestData("put", `/api/user`, body, headers)
   return {
     type: UPDATE_USER_INFO,
@@ -122,7 +117,6 @@ export const getUserGameInfo = (id, input) => {
     'access-token': input.accessToken,
     'refresh-token': input.refreshToken
   }
-  console.log('headers', input)
   const response = requestData("get", `/api/stage/stageList?userId=${id}`, input, headers)
   return {
     type: USER_GAME_INFO,
@@ -136,7 +130,6 @@ export const getUserStage = (id, gameId, input) => {
     'access-token': input.accessToken,
     'refresh-token': input.refreshToken
   }
-  console.log('headers', input)
   const response = requestAll("get", `/api/stage?userId=${id}&gameCode=${gameId}`, input, headers)
   return {
     type: USER_GAMESTAGE,

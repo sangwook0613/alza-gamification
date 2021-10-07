@@ -13,9 +13,8 @@ const InfoUpdateModal = (props) => {
   const [nickname, setNickname] = useState(props.userNickName)
   const [nicknameErrorMessage, setNicknameErrorMessage] = useState('')
   const dispatch = useDispatch()
-  console.log(props)
 
-  
+
   const onNicknameHandle = (e) => {
     setNickname(e.currentTarget.value)
   }
@@ -38,8 +37,6 @@ const InfoUpdateModal = (props) => {
   }
 
   const onSubmit = () => {
-    console.log(nickname, phoneNum, email, '도대체 뭐라고나오길래 undefined야?')
-    console.log('Submit')
     const body = {
       accessToken,
       refreshToken,
@@ -51,14 +48,11 @@ const InfoUpdateModal = (props) => {
     if (checkValidation()) {
       props.dispatch({type: 'UPDATE_MYPAGE', payload: body});
       dispatch(updateUserInfo(body))
-        .then((res) => {
-          console.log(res)
-          // console.log(res.data, 'axios로 받아오는 data는 없다')
+        .then(() => {
           swal("회원정보 수정 완료", "회원 정보 수정이 완료되었습니다.", "success");
           props.onClose()
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(() => {
           swal("회원정보 변경 실패", "다시 시도해주세요!", "error");
         })
     } else {

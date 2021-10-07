@@ -45,13 +45,11 @@ const PasswordUpdateModal = (props) => {
         newPassword: password,
       }
       dispatch(updatePassword(body))
-        .then((res) => {
-          console.log(res)
+        .then(() => {
           swal("비밀번호 변경 완료", "변경된 비밀번호를 사용하세요", "success");
           props.onClose()
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(() => {
           swal("비밀번호 변경 실패", "다시 시도해주세요!", "error");
         })
     } else {

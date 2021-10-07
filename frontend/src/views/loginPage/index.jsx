@@ -35,22 +35,17 @@ const LoginPage = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log(e.target)
-    console.log(e.target[0].value)
-    console.log(e.target[1].value)
     let body = {
       userId: id,
       password: password,
     }
     dispatch(loginUser(body))
       .then((res) => {
-        console.log(res)
         setToken(res.payload.headers)
         setUserId(res.payload.data.userId)
         props.history.push('/')
       })
       .catch((err) => {
-        console.log(err)
         swal("로그인에 실패했습니다.", "아이디 혹은 비밀번호를 확인해주세요!", "error");
       })
   }

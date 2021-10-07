@@ -16,7 +16,6 @@ import gray_egg from '../../assets/badges/gray_egg.png'
 import { useMediaQuery } from 'react-responsive'
 
 const MyPage = (props) => {
-  // console.log(props)
   const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
 
@@ -72,20 +71,16 @@ const MyPage = (props) => {
   }
 
   const handleUserInfoUpdateModal = () => {
-    console.log('userInfoUpdateModalOn')
     setUserInfoUpdateModalOn(!userInfoUpdateModalOn)
   }
   const handleUserDeleteModal = () => {
-    console.log('userDeleteModalOn')
     setUserDeleteModalOn(!userDeleteModalOn)
   }
   const handleUserPasswordUpdateModal = () => {
-    console.log('userPasswordUpdateModalOn')
     setUserPasswordUpdateModalOn(!userPasswordUpdateModalOn)
   }
 
-  const initialUserInfo = () => {
-    console.log('initialUserInfo')
+  useEffect(() => {
     const body = {
       accessToken,
       refreshToken,
@@ -93,7 +88,6 @@ const MyPage = (props) => {
     if (body.accessToken) {
       dispatch(getUserInfo(userId, body))
         .then((res) => {
-          console.log('getUserInfo', res)
           const data = res.payload.data
           setUserInfo({
             'userId': data.userId,
@@ -103,33 +97,18 @@ const MyPage = (props) => {
             'userTel': data.userTel,
           })
         })
-    }
-  }
-
-  const initialUserGameInfo = () => {
-    console.log('initialUserGameInfo')
-    const body = {
-      accessToken,
-      refreshToken,
-    }
-    if (body.accessToken) {
+      
       dispatch(getUserGameInfo(userId, body))
         .then((res) => {
           const data = res.payload
-          console.log('getUserGameInfo', data)
           setUserGameInfo(data)
         })
     }
-  }
-
-  useEffect(() => {
-    initialUserInfo()
-    initialUserGameInfo()
   }, [userId, accessToken, dispatch, refreshToken])
 
   let array = []
   let i = 0
-  // console.log(props.state.isUpdate, '업데이트 여부확인')
+  
   if (props.state.isUpdate) {
     for (const key in userInfoUpdate) {
       i++
@@ -145,7 +124,6 @@ const MyPage = (props) => {
     for (const key in userInfo) {
       i++
       const value = userInfo[key] ? userInfo[key] : '-'
-      // console.log(value, 'value 값 확인', userInfo[key], key)
       array.push(
         <li key={i}>
           <div className="user-info-key">{matchInfo[key]}</div>
@@ -156,8 +134,6 @@ const MyPage = (props) => {
   }
 
   for (let j = 0; j < userGameInfo.length; j++) {
-    console.log(noClearBadges[badges[userGameInfo[j].gameCode - 1].id - 1])
-    console.log(badges[userGameInfo[j].gameCode - 1])
     noClearBadges[badges[userGameInfo[j].gameCode - 1].id - 1] = badges[userGameInfo[j].gameCode - 1]
   }
 

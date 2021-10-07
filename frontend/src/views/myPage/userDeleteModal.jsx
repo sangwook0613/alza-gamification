@@ -9,8 +9,7 @@ const UserDeleteModal = (props) => {
   const accessToken = sessionStorage.getItem('accessToken')
   const refreshToken = sessionStorage.getItem('refreshToken')
   const dispatch = useDispatch()
-  console.log(props)
-  const router = useHistory();
+  const router = useHistory()
 
   const onSubmit = () => {
     const body = {
@@ -18,8 +17,7 @@ const UserDeleteModal = (props) => {
       refreshToken,
     }
     dispatch(deleteUser(userId, body))
-      .then((res) => {
-        console.log(res)
+      .then(() => {
         swal("정상적으로 탈퇴되었습니다.", "그동안 알짜배기를 이용해주셔서 감사합니다.", "success");
         sessionStorage.removeItem('accessToken')
         sessionStorage.removeItem('refreshToken')
@@ -27,8 +25,7 @@ const UserDeleteModal = (props) => {
         props.onClose()
         router.push("/");
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
         swal("에러발생", "다시 시도해주세요!", "error");
       })
   }

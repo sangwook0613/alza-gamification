@@ -56,7 +56,6 @@ const SignupPage = (props) => {
       setIdErrorMessage(result)
     } else {
       dispatch(checkUserId(e.target.value, {})).then((res) => {
-        console.log(res)
         if (res.payload) {
           setIdErrorMessage("")
           setIdAcceptMessage("사용가능한 아이디입니다.")
@@ -92,7 +91,6 @@ const SignupPage = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log(e)
     if (checkValidation()) {
       let body = {
         userId: id,
@@ -102,8 +100,7 @@ const SignupPage = (props) => {
         userTel: phoneNum,
         userEmail: email,
       }
-      dispatch(signupUser(body)).then((res) => {
-        console.log(res)
+      dispatch(signupUser(body)).then(() => {
         swal("정상적으로 가입되었습니다!", "로그인을 진행해 주세요", "success");
         props.history.push('/login')
       })

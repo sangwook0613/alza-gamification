@@ -142,7 +142,7 @@ function Navi(props){
                   <NavLink to='/login' className="nav-text" onClick={clickNav} style={{ paddingTop: "8px", paddingBottom: "8px" }}>로그인</NavLink>
                 }
                 {userId ?
-                  <div onClick={handleClickLogoutRes} style={{ paddingTop: "8px", paddingBottom: "8px" }}>로그아웃</div>
+                  <div className="cursor" onClick={handleClickLogoutRes} style={{ paddingTop: "8px", paddingBottom: "8px" }}>로그아웃</div>
                   :
                   <NavLink to='/signup' className="nav-text" onClick={clickNav} style={{ paddingTop: "8px", paddingBottom: "8px" }}>회원가입</NavLink>
                 }

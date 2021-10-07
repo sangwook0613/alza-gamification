@@ -39,13 +39,19 @@ public class StageServiceImpl implements StageService {
     @Transactional
     public int updateStageInfo(StageDto stageDto) {
         try {
+            //기존 디비
             StageDto sd = getStageInfoByUserIdAndGameCode(stageDto.getUserId(), Integer.parseInt(stageDto.getGameCode()));
+            int sdCurStage = Integer.parseInt(sd.getCurStage());
+            int dtoCurStage = Integer.parseInt(stageDto.getCurStage());
+
+            int curStage = sdCurStage > dtoCurStage ? sdCurStage: dtoCurStage;
+
             Stage stage = new Stage();
             stage.setStageId(sd.getStageId());
             System.out.println(stage.getStageId());
             stage.setUserId(stageDto.getUserId());
             stage.setGameCode(Integer.parseInt(stageDto.getGameCode()));
-            stage.setCurStage(Integer.parseInt(stageDto.getCurStage()));
+            stage.setCurStage(curStage);
             stageRepository.save(stage);
             return SUCCESS;
 

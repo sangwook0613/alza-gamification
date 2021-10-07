@@ -110,7 +110,7 @@
 <img src="https://i.imgur.com/HfDva2W.gif" alt="stack">
 <h4>그래프 (Graph)</h4>
 <img src="https://i.imgur.com/opKQjG6.gif" alt="stack">
-<h4>트리 (Tree))</h4>
+<h4>트리 (Tree)</h4>
 <img src="https://i.imgur.com/aKOZ9bs.gif" alt="stack">
 <h4>정렬 (Sorting)</h4>
 <img src="https://i.imgur.com/hMieZEr.gif" alt="stack">

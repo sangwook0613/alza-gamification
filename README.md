@@ -1,8 +1,8 @@
-<div style="text-align: center;">
-<h1 align="center" >
-    <img alt="Documentation" src="https://i.imgur.com/KhGjECt.png" style="display: inline;" width="7%" />
+<div>
+<h1 align="center">
+    <img alt="Documentation" src="https://i.imgur.com/KhGjECt.png" width="7%" />
     알린이들을 위한 음성 인식 게임 서비스
-    <img alt="Documentation" src="https://user-images.githubusercontent.com/77473524/136320348-34c6f76f-f16c-4289-8467-c85c05b8ef35.png" style="display: inline;" width="8%"/>
+    <img alt="Documentation" src="https://user-images.githubusercontent.com/77473524/136320348-34c6f76f-f16c-4289-8467-c85c05b8ef35.png" width="8%"/>
 </h1>
 </div>
 <p>
@@ -13,8 +13,7 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
-<div style="display: flex; justify-content: center;
-align-item: center; margin: 20px">
+<div align="center">
     <img alt="License: MIT" src="https://i.imgur.com/7pSFyXm.png" width=90%/>
 </div>
 
@@ -81,29 +80,20 @@ align-item: center; margin: 20px">
 ### 1. 기본 개념 학습
 
 <div style="text-align:center; margin-bottom: 10px">
-<div style="display: inline;">
+<div align="center">
     <img src="https://user-images.githubusercontent.com/69133236/136321903-357aa08a-ad8c-403d-90c2-05878a03b194.jpg" alt="img2" width="48%" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-
-<div style="display: inline;">
     <img src="https://user-images.githubusercontent.com/69133236/136321908-7ac4a7a9-fae0-403b-a441-f8259323ad64.jpg" alt="img2" width="48%" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
 </div>
-<div style="display: inline;">
+<div align="center">
     <img src="https://user-images.githubusercontent.com/69133236/136321941-a7600abc-1aa2-4d75-a5b8-78298c18f696.jpg" alt="img2" width="48%" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-<div style="display: inline;">
     <img src="https://user-images.githubusercontent.com/69133236/136321945-47898f11-5a27-4546-aaf4-ae04279bebab.jpg" alt="img2" width="48%" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
 </div>
-<div style="display: inline;">
+<div align="center">
     <img src="https://user-images.githubusercontent.com/69133236/136321948-d95a8988-8ec3-4626-9b24-fd0f39a9cdcc.jpg" alt="img2" width="48%" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-<div style="display: inline;">
     <img src="https://user-images.githubusercontent.com/69133236/136321952-eb7e5cc1-7c06-48f6-9d38-c1e514406440.jpg" alt="img2" width="48%" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
 </div>
-<div style="display: inline;">
+<div align="center">
     <img src="https://user-images.githubusercontent.com/69133236/136322092-12cb094a-d52a-4e1d-a66b-2937fdb2fb7f.jpg" alt="img2" width="48%" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-<div style="display: inline;">
     <img src="https://user-images.githubusercontent.com/69133236/136321954-da07d323-70b5-42d9-9052-84da273022d9.jpg" alt="img2" width="48%" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
 </div>
 </div>
@@ -113,41 +103,24 @@ align-item: center; margin: 20px">
 
 ### 2. 자료구조, 알고리즘 게임
 
-- **스택 (Stack)**
-<div style="text-align:center; margin-bottom: 20px;">
-<img src="https://i.imgur.com/Uw2lLBy.gif" alt="img2" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-
-- **큐 (Queue)**
-<div style="text-align:center; margin-bottom: 20px;">
-<img src="https://i.imgur.com/HfDva2W.gif" alt="img2" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-
-- **그래프 (Graph)**
-<div style="text-align:center; margin-bottom: 20px;">
-<img src="https://i.imgur.com/opKQjG6.gif" alt="img2" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-
-- **트리 (Tree)**
-<div style="text-align:center; margin-bottom: 20px;">
-<img src="https://i.imgur.com/aKOZ9bs.gif" alt="img2" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-
-- **정렬 (Sorting)**
-<div style="text-align:center; margin-bottom: 20px;">
-    <img src="https://i.imgur.com/hMieZEr.gif" alt="img2" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
-
-- **이분탐색 (Binary Search)**
-<div style="text-align:center; margin-bottom: 20px;">
-    <img src="https://i.imgur.com/6rJAQIt.gif" alt="img2" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
+<div align="center">
+<h4>스택 (Stack)</h4>
+<img src="https://i.imgur.com/Uw2lLBy.gif" alt="stack">
+<h4>큐 (Queue)</h4>
+<img src="https://i.imgur.com/HfDva2W.gif" alt="stack">
+<h4>그래프 (Graph)</h4>
+<img src="https://i.imgur.com/opKQjG6.gif" alt="stack">
+<h4>트리 (Tree))</h4>
+<img src="https://i.imgur.com/aKOZ9bs.gif" alt="stack">
+<h4>정렬 (Sorting)</h4>
+<img src="https://i.imgur.com/hMieZEr.gif" alt="stack">
+<h4>이분탐색 (Binary Search)</h4>
+<img src="https://i.imgur.com/6rJAQIt.gif" alt="stack">
 </div>
 
 ### 3. 마이페이지
 
-<div style="text-align:center margin-bottom: 20px;">
-<img src="https://user-images.githubusercontent.com/77473524/136328688-214b0cf0-01b9-4ca9-9aa8-58cfab90b943.jpg" alt="img3" style="box-shadow: 4px 4px 4px grey; margin: 5px;">
-</div>
+<img src="https://user-images.githubusercontent.com/77473524/136328688-214b0cf0-01b9-4ca9-9aa8-58cfab90b943.jpg" alt="img3" >
 
     - 회원 정보 관리 및 게임 클리어 정보 조회
 

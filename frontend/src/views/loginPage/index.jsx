@@ -104,7 +104,7 @@ const LoginPage = (props) => {
         </div>
       }
       {isTabletOrMobile &&
-        <div style={{ display: "flex", height: "90%" }}>
+        <div style={{ display: "flex", height: "90%", justifyContent:"center" }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ width: "50%", justifyContent: "center", alignItems: "center", display: "flex" }}>
               <img src={logo11} alt="" style={{ width: "50%", marginBottom:"50px" }} />

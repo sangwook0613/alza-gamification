@@ -12,7 +12,7 @@ import { useMediaQuery } from 'react-responsive'
 
 function GamePage(props) {
 
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
 
   const ds = [

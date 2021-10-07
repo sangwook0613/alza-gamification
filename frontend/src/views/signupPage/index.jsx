@@ -108,7 +108,7 @@ const SignupPage = (props) => {
       swal("회원가입에 실패했습니다", "올바르게 작성해주세요", "error");
     }
   }
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
 
   return (

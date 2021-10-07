@@ -65,7 +65,7 @@ function GameDetailPage(props) {
   }
 
   // 반응형 조절
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
 
   // 현재 게임 stage를 어디까지 클리어했었는지 받아오기 

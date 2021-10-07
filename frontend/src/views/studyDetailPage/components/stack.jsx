@@ -13,7 +13,7 @@ import '../../../styles/studyCard.css';
 
 
 function Stack() {
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
 
   const renderTooltip = (props) => (

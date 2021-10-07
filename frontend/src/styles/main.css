@@ -101,7 +101,8 @@
 .man-computer {
   position: absolute;
   left: 6%;
-  top: 41.5%;
+  bottom: 0;
+  /* top: 41.5%; */
 }
 
 .man-computer img {

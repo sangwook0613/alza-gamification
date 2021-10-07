@@ -14,7 +14,7 @@ import '../../../styles/studyCard.css';
 
 
 function Queue() {
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>

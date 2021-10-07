@@ -16,7 +16,7 @@ import gray_egg from '../../assets/badges/gray_egg.png'
 import { useMediaQuery } from 'react-responsive'
 
 const MyPage = (props) => {
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
 
   const noClearBadges = [

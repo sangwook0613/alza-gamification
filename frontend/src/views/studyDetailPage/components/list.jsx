@@ -8,7 +8,7 @@ import list2 from '../../../assets/study/list2.PNG'
 
 
 function List() {
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
   return (
     <div id="study">

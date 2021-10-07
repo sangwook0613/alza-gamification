@@ -13,7 +13,6 @@ function Modal(props) {
     'userTel': props.userTel,
   }
   const onClose = props.onClose
-  console.log(props)
 
   return createPortal(
     <div className="modalWrapper">

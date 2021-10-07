@@ -26,7 +26,7 @@ function Navi(props){
     document.getElementById("hamberger").click()
   }
 
-  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 800 })
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 800 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
   // const username = sessionStorage.getItem('userId')
 
@@ -40,6 +40,13 @@ function Navi(props){
     // document.getElementById("responsive-navbar-nav").className = "navbar-collapse collapse"
     // navbar-toggler collapsed
     // navbar-collapse collapse
+  }
+
+  const clickGame = (e) => {
+    document.getElementById("basic-nav-dropdown1").click()
+  }
+  const clickStudy = (e) => {
+    document.getElementById("basic-nav-dropdown2").click()
   }
   return (
     <>
@@ -57,16 +64,16 @@ function Navi(props){
             </div>
 
             <div className="content-navbar">
-              <NavDropdown title="게임" id="basic-nav-dropdown" className="nav-text content">
+              <NavDropdown title="게임" id="basic-nav-dropdown1" className="nav-text content">
                 <div className="game-dropdown">
-                  <NavLink to="/game/ds" className="nav-text">자료구조</NavLink>
-                  <NavLink to="/game/algo" className="nav-text">알고리즘</NavLink>
+                  <NavLink to="/game/ds" className="nav-text" onClick={clickGame}>자료구조</NavLink>
+                  <NavLink to="/game/algo" className="nav-text" onClick={clickGame}>알고리즘</NavLink>
                 </div>
               </NavDropdown>
-              <NavDropdown title="학습" id="basic-nav-dropdown" className="nav-text content" >
+              <NavDropdown title="학습" id="basic-nav-dropdown2" className="nav-text content" >
                 <div className="study-dropdown">
-                  <NavLink to="/study/ds" className="nav-text">자료구조</NavLink>
-                  <NavLink to="/study/algo" className="nav-text">알고리즘</NavLink>
+                  <NavLink to="/study/ds" className="nav-text" onClick={clickStudy}>자료구조</NavLink>
+                  <NavLink to="/study/algo" className="nav-text" onClick={clickStudy}>알고리즘</NavLink>
                 </div>
               </NavDropdown>
               {userId ?

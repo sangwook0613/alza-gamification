@@ -138,6 +138,10 @@
  - **정원석** - 회원 인증 / 관리 기능, Unity STT 음성 인식 적용, 알고리즘(정렬) 게임 개발.
  - **조의상** - CI / CD 배포환경 구축, 게임 스테이지 관련 API, React와 Unity 간 통신 적용, 알고리즘(이분탐색) 게임 개발.
 
+## 프로젝트 문서
+
+[Notion 문서](https://sangwook-dev.notion.site/915fecd3df5343ffb8b9662adff9e498)
+
 ## Author
 
 👤 **조의상**
